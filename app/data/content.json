@@ -1,0 +1,2716 @@
+{
+  "Cleaning": {
+    "templateComponents": {
+      "template-1": {
+        "shared": {
+          "Site": "CleaningSite1",
+          "Topbar": "CleaningTopbar1",
+          "Header": "CleaningHeader1",
+          "Footer": "CleaningFooter1"
+        },
+        "pages": {
+          "home": {
+            "components": [
+              {
+                "key": "Banner",
+                "component": "CleaningBanner1"
+              },
+              {
+                "key": "CompanyStatistics",
+                "component": "CleaningStats1"
+              },
+              {
+                "key": "About",
+                "component": "CleaningAbout1"
+              },
+              {
+                "key": "WhyChooseUs",
+                "component": "CleaningWhyChooseUs1"
+              },
+              {
+                "key": "ProfessionalCleaning",
+                "component": "CleaningProfessionalCleaning1"
+              },
+              {
+                "key": "Services",
+                "component": "CleaningServices1"
+              },
+              {
+                "key": "Testimonial",
+                "component": "CleaningTestimonial1"
+              }
+            ]
+          },
+          "about": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "CleaningPageBanner1"
+              },
+              {
+                "key": "About",
+                "component": "CleaningAbout1"
+              }
+            ]
+          },
+          "services": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "CleaningPageBanner1"
+              },
+              {
+                "key": "ServicesListing",
+                "component": "CleaningServicesPage1"
+              }
+            ]
+          },
+          "service-detail": {
+            "expand": "items",
+            "components": [
+              {
+                "key": "ServiceDetail",
+                "component": "CleaningServiceDetail1"
+              }
+            ]
+          },
+          "gallery": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "CleaningPageBanner1"
+              },
+              {
+                "key": "Gallery",
+                "component": "CleaningGallery1"
+              }
+            ]
+          },
+          "blogs": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "CleaningPageBanner1"
+              },
+              {
+                "key": "BlogListing",
+                "component": "CleaningBlogPage1"
+              }
+            ]
+          },
+          "blog-detail": {
+            "expand": "items",
+            "components": [
+              {
+                "key": "BlogDetail",
+                "component": "CleaningBlogDetail1"
+              }
+            ]
+          },
+          "faq": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "CleaningPageBanner1"
+              },
+              {
+                "key": "FAQ",
+                "component": "CleaningFAQ1"
+              }
+            ]
+          },
+          "contact": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "CleaningPageBanner1"
+              },
+              {
+                "key": "ContactDetails",
+                "component": "CleaningContact1"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "sections": {
+      "Site": {
+        "variants": {
+          "CleaningSite1": {
+            "name": "PureShine",
+            "tagline": "A Cleaner Space, A Happier You",
+            "description": "We provide reliable, affordable, and eco-friendly cleaning services for homes, offices, and commercial spaces.",
+            "logo": "/logo.webp",
+            "footerLogo": "/footer-logo.webp",
+            "copyright": "© 2026 All Rights Reserved. Powered by Lestow",
+            "email": "info@xyz.com",
+            "emailHref": "mailto:info@xyz.com",
+            "phone": "+1 0000000000",
+            "phoneHref": "tel:+10000000000",
+            "phoneHours": "Mon – Sat, 9:00 AM – 7:00 PM",
+            "emailNote": "We reply within 24 hours",
+            "address": "Awel Kiett-turner 495 Boulevard, Ste 10 Elmwood Park, NJ 07407, USA"
+          }
+        }
+      },
+      "Topbar": {
+        "variants": {
+          "CleaningTopbar1": {
+            "followUsLabel": "Follow Us:",
+            "phoneAriaLabel": "Call PureShine",
+            "emailAriaLabel": "Email PureShine",
+            "socialLinks": [
+              {
+                "label": "Facebook",
+                "href": "https://www.facebook.com"
+              },
+              {
+                "label": "X",
+                "href": "https://www.x.com"
+              },
+              {
+                "label": "Instagram",
+                "href": "https://www.instagram.com"
+              },
+              {
+                "label": "LinkedIn",
+                "href": "https://www.linkedin.com"
+              },
+              {
+                "label": "YouTube",
+                "href": "https://www.youtube.com"
+              }
+            ]
+          }
+        }
+      },
+      "Header": {
+        "variants": {
+          "CleaningHeader1": {
+            "openMenuAriaLabel": "Open navigation menu",
+            "closeMenuAriaLabel": "Close navigation menu",
+            "leftMenu": [
+              {
+                "name": "HOME",
+                "href": "/"
+              },
+              {
+                "name": "ABOUT US",
+                "href": "/about"
+              },
+              {
+                "name": "SERVICES",
+                "href": "/services"
+              }
+            ],
+            "rightMenu": [
+              {
+                "name": "GALLERY",
+                "href": "/gallery"
+              },
+              {
+                "name": "BLOGS",
+                "href": "/blogs"
+              },
+              {
+                "name": "CONTACT US",
+                "href": "/contact"
+              }
+            ]
+          }
+        }
+      },
+      "Banner": {
+        "variants": {
+          "CleaningBanner1": {
+            "badge": "PROFESSIONAL CLEANING SERVICES",
+            "headingLine1": "A Cleaner Space",
+            "headingLine2": "A Happier You",
+            "description": "We provide reliable, affordable, and eco-friendly cleaning services for homes, offices, and commercial spaces.",
+            "backgroundImage": "/heroBanner.webp",
+            "primaryButton": {
+              "label": "Book a Cleaning",
+              "href": "/contact"
+            },
+            "secondaryButton": {
+              "label": "Our Services",
+              "href": "/services"
+            },
+            "features": [
+              {
+                "icon": "Leaf",
+                "title": "Eco-Friendly",
+                "subtitle": "Products"
+              },
+              {
+                "icon": "Users",
+                "title": "Trained",
+                "subtitle": "Professionals"
+              },
+              {
+                "icon": "ShieldCheck",
+                "title": "100%",
+                "subtitle": "Satisfaction"
+              },
+              {
+                "icon": "Clock3",
+                "title": "On-Time",
+                "subtitle": "Service"
+              }
+            ]
+          }
+        }
+      },
+      "CompanyStatistics": {
+        "variants": {
+          "CleaningStats1": {
+            "stats": [
+              {
+                "icon": "Users",
+                "value": "2,500+",
+                "title": "Happy Clients",
+                "description": "Trusted by families & businesses",
+                "progress": 82
+              },
+              {
+                "icon": "SprayCan",
+                "value": "5,000+",
+                "title": "Cleanings Completed",
+                "description": "Spotless spaces delivered",
+                "progress": 90
+              },
+              {
+                "icon": "UserRound",
+                "value": "25+",
+                "title": "Professional Cleaners",
+                "description": "Trained & background checked",
+                "progress": 76
+              },
+              {
+                "icon": "Award",
+                "value": "8+",
+                "title": "Years of Experience",
+                "description": "Delivering cleaner, healthier spaces",
+                "progress": 86
+              }
+            ]
+          }
+        }
+      },
+      "About": {
+        "variants": {
+          "CleaningAbout1": {
+            "hero": {
+              "title": "About Us",
+              "breadcrumb": "About Us",
+              "backgroundImage": "/about-hero.webp"
+            },
+            "badge": "ABOUT PURESHINE",
+            "headingLine1": "Professional",
+            "headingLine2": "Cleaning Service",
+            "image": "/aboutCleaning.webp",
+            "imageAlt": "PureShine professional cleaning team",
+            "paragraphs": [
+              "At PureShine, we believe a clean space creates a healthier, happier and more productive life. We provide reliable, high-quality cleaning services for homes, offices, and commercial spaces with trained professionals and eco-friendly products."
+            ],
+            "features": [
+              {
+                "icon": "Users",
+                "label": "Trusted & Experienced"
+              },
+              {
+                "icon": "Leaf",
+                "label": "Safe & Eco-Friendly "
+              },
+              {
+                "icon": "ShieldCheck",
+                "label": "100%  Satisfaction"
+              }
+            ],
+            "button": {
+              "label": "Contact Us",
+              "href": "/contact"
+            }
+          }
+        }
+      },
+      "WhyChooseUs": {
+        "variants": {
+          "CleaningWhyChooseUs1": {
+            "badge": "Why Choose Us",
+            "headingLine1": "More Than Cleaning,",
+            "headingLine2": "A Healthier Tomorrow",
+            "description": "We are committed to delivering high-quality cleaning services that make your home or workplace cleaner, healthier and more comfortable. Here's why our clients trust us.",
+            "leafImage": "/leaf.png",
+            "leafImageAlt": "leaf decoration",
+            "image": "/aboutCleanings.webp",
+            "imageAlt": "Professional cleaning service",
+            "features": [
+              {
+                "icon": "Users",
+                "title": "Trained Professionals",
+                "description": "Skilled and background checked team."
+              },
+              {
+                "icon": "Leaf",
+                "title": "Eco-Friendly Products",
+                "description": "Safe for you, your family and the environment."
+              },
+              {
+                "icon": "ShieldCheck",
+                "title": "Reliable & On-Time",
+                "description": "We value your time and always arrive on schedule."
+              },
+              {
+                "icon": "Coins",
+                "title": "Affordable Pricing",
+                "description": "High-quality cleaning at competitive rates."
+              }
+            ],
+            "mission": {
+              "icon": "Target",
+              "line1": "Our Mission: Creating Cleaner,",
+              "line2": "Healthier Spaces for Happier Lives."
+            },
+            "benefits": [
+              {
+                "icon": "Sparkles",
+                "title": "100% Satisfaction",
+                "description": "Your happiness is our priority."
+              },
+              {
+                "icon": "House",
+                "title": "Customized Solutions",
+                "description": "Cleaning plans as per your needs."
+              },
+              {
+                "icon": "Clock3",
+                "title": "Easy Booking",
+                "description": "Quick, simple and hassle-free process."
+              }
+            ],
+            "banner": {
+              "line1": "Let's Make",
+              "line2": "Life Cleaner"
+            }
+          }
+        }
+      },
+      "ProfessionalCleaning": {
+        "variants": {
+          "CleaningProfessionalCleaning1": {
+            "badge": "Our Services",
+            "titleLine1": "Professional Home",
+            "titleLine2": "Deep Cleaning for a",
+            "highlight": "Spotless Space",
+            "image": "/aboutCleaning.webp",
+            "imageAlt": "Professional home deep cleaning service",
+            "paragraphs": [
+              "Our professional home deep cleaning service removes dust, dirt, allergens and hidden grime from every corner of your home. We use safe and eco-friendly cleaning products along with modern equipment to give you a fresh, healthy and hygienic living space.",
+              "Whether it is your living room, bedroom, kitchen or bathroom, our trained cleaning experts ensure a deeper clean that goes beyond regular cleaning, so you and your family can enjoy a cleaner and happier home."
+            ],
+            "features": [
+              "Thorough cleaning of all rooms and surfaces.",
+              "Safe, eco-friendly and non-toxic cleaning products.",
+              "Trained and background-verified cleaning professionals."
+            ],
+            "footer": "A clean home is a happy home. Our professional deep cleaning service is designed to thoroughly eradicate accumulated dirt, allergens, and hidden bacteria from hard-to-reach crevices, leaving your entire residence fresh, revitalized, and safe. We focus on every single detail—including floor care, window glass, upholstery, kitchen counter degreasing, bathroom descaling, and high-touch surface sanitization—to ensure your family enjoys the highest standard of living comfort and pristine hygiene that your home truly deserves."
+          }
+        }
+      },
+      "Services": {
+        "variants": {
+          "CleaningServices1": {
+            "badge": "OUR SERVICES",
+            "heading": "Our Popular",
+            "headingHighlight": "Cleaning Services",
+            "description": "We offer a wide range of professional cleaning services to keep your spaces fresh, healthy and spotless.",
+            "leafImage": "/leaf.png",
+            "itemsPerPage": 8,
+            "viewAllButton": {
+              "label": "View All Services",
+              "href": "/services"
+            },
+            "hero": {
+              "title": "Services",
+              "breadcrumb": "Services",
+              "backgroundImage": "/about-hero.webp"
+            }
+          }
+        }
+      },
+      "ServicesPage": {
+        "variants": {
+          "CleaningServicesPage1": {
+            "items": [
+              {
+                "icon": "Home",
+                "darkIcon": true,
+                "image": "/services/home-cleaning.webp",
+                "imageAlt": "Professional home cleaning service",
+                "title": "Home Cleaning",
+                "description": "A clean and healthy home for a happier you.",
+                "slug": "home-cleaning",
+                "details": {
+                  "badge": "Our Services",
+                  "tagline": "From dusty to dazzling — ",
+                  "longDescription": "Our home cleaning service is designed to bring a spotless, healthy environment to every room in your house. From dusting and vacuuming to wiping down surfaces and sanitising bathrooms, our trained professionals handle every detail so you can focus on what matters most. We use safe, eco-friendly products that are tough on grime but gentle on your family and pets.",
+                  "footer": "Whether it's your living room, bedroom, kitchen, or bathroom, our trained cleaning specialists go beyond routine surface cleaning to deliver a deeper, healthier living environment that you can see, feel, and enjoy every day. We utilize certified eco-friendly, non-toxic cleaning agents and modern HEPA filtration equipment that effectively eliminate hidden allergens, microscopic bacteria, and accumulated grime while keeping children and pets completely safe. Every cleaning session is customized to the layout and lifestyle needs of your household, ensuring spotless results, sanitized high-touch surfaces, and genuine peace of mind.",
+                  "features": [
+                    "Full room cleaning including bedrooms, living areas and hallways",
+                    "Vacuuming, sweeping and mopping all floor types",
+                    "Surface dusting and sanitisation",
+                    "Bathroom and toilet deep scrub",
+                    "Kitchen surface and appliance wipe-down",
+                    "Eco-friendly, non-toxic cleaning products",
+                    "Trained and background-verified cleaning staff"
+                  ],
+                  "includes": [
+                    "All rooms & hallways",
+                    "Bathrooms & toilets",
+                    "Kitchen surfaces",
+                    "Windows (interior)",
+                    "Skirting boards",
+                    "Light switches & door handles"
+                  ],
+                  "process": [
+                    {
+                      "step": 1,
+                      "title": "Book Online",
+                      "description": "Choose your service, select a date and time, and confirm your booking in minutes."
+                    },
+                    {
+                      "step": 2,
+                      "title": "We Arrive & Inspect",
+                      "description": "Our team arrives on time, inspects your home and creates a tailored cleaning plan."
+                    },
+                    {
+                      "step": 3,
+                      "title": "Deep Clean",
+                      "description": "We clean every room thoroughly using professional equipment and eco-friendly products."
+                    },
+                    {
+                      "step": 4,
+                      "title": "Final Check",
+                      "description": "We do a quality walkthrough before leaving to make sure you are completely satisfied."
+                    }
+                  ]
+                },
+                "id": "home-cleaning",
+                "badge": "Our Services",
+                "tagline": "From dusty to dazzling — ",
+                "longDescription": "Our home cleaning service is designed to bring a spotless, healthy environment to every room in your house. From dusting and vacuuming to wiping down surfaces and sanitising bathrooms, our trained professionals handle every detail so you can focus on what matters most. We use safe, eco-friendly products that are tough on grime but gentle on your family and pets.",
+                "footer": "Whether it's your living room, bedroom, kitchen, or bathroom, our trained cleaning specialists go beyond routine surface cleaning to deliver a deeper, healthier living environment that you can see, feel, and enjoy every day. We utilize certified eco-friendly, non-toxic cleaning agents and modern HEPA filtration equipment that effectively eliminate hidden allergens, microscopic bacteria, and accumulated grime while keeping children and pets completely safe. Every cleaning session is customized to the layout and lifestyle needs of your household, ensuring spotless results, sanitized high-touch surfaces, and genuine peace of mind.",
+                "features": [
+                  "Full room cleaning including bedrooms, living areas and hallways",
+                  "Vacuuming, sweeping and mopping all floor types",
+                  "Surface dusting and sanitisation",
+                  "Bathroom and toilet deep scrub",
+                  "Kitchen surface and appliance wipe-down",
+                  "Eco-friendly, non-toxic cleaning products",
+                  "Trained and background-verified cleaning staff"
+                ],
+                "includes": [
+                  "All rooms & hallways",
+                  "Bathrooms & toilets",
+                  "Kitchen surfaces",
+                  "Windows (interior)",
+                  "Skirting boards",
+                  "Light switches & door handles"
+                ],
+                "process": [
+                  {
+                    "step": 1,
+                    "title": "Book Online",
+                    "description": "Choose your service, select a date and time, and confirm your booking in minutes."
+                  },
+                  {
+                    "step": 2,
+                    "title": "We Arrive & Inspect",
+                    "description": "Our team arrives on time, inspects your home and creates a tailored cleaning plan."
+                  },
+                  {
+                    "step": 3,
+                    "title": "Deep Clean",
+                    "description": "We clean every room thoroughly using professional equipment and eco-friendly products."
+                  },
+                  {
+                    "step": 4,
+                    "title": "Final Check",
+                    "description": "We do a quality walkthrough before leaving to make sure you are completely satisfied."
+                  }
+                ]
+              },
+              {
+                "icon": "Building2",
+                "darkIcon": false,
+                "image": "/services/office-cleaning.webp",
+                "imageAlt": "Professional office cleaning service",
+                "title": "Office Cleaning",
+                "description": "Bright, clean workspaces boost productivity.",
+                "slug": "office-cleaning",
+                "details": {
+                  "badge": "Our Services",
+                  "tagline": "A cleaner office means a sharper team.",
+                  "longDescription": "First impressions matter. Our professional office cleaning service ensures your workplace is spotless, hygienic and welcoming every single day. We work around your schedule — early morning, evenings or weekends — so your business is never disrupted. From reception areas to meeting rooms, restrooms and open-plan desks, we cover it all with precision and care.",
+                  "footer": "Whether it's executive boardrooms, open workstations, client reception lounges, or employee break areas, our certified commercial cleaning experts deliver an immaculate, thoroughly sanitized workspace that actively fosters team productivity, morale, and everyday wellness. We provide highly flexible scheduling options—including early mornings, evening shifts, and weekend maintenance—to ensure your daily business operations remain entirely uninterrupted. From hospital-grade surface disinfection to detailed electronic equipment wipe-downs and commercial waste management, we uphold strict standards of cleanliness that project professionalism to every visiting client and partner.",
+                  "features": [
+                    "Desks, chairs and workstation sanitisation",
+                    "Reception and common area cleaning",
+                    "Meeting room preparation and cleaning",
+                    "Kitchen and breakroom cleaning",
+                    "Restroom deep cleaning and restocking",
+                    "Floor vacuuming, sweeping and mopping",
+                    "Waste collection and recycling management"
+                  ],
+                  "includes": [
+                    "Open-plan office areas",
+                    "Meeting & conference rooms",
+                    "Reception & lobby",
+                    "Restrooms",
+                    "Staff kitchen & break room",
+                    "Corridors & stairwells"
+                  ],
+                  "process": [
+                    {
+                      "step": 1,
+                      "title": "Schedule a Visit",
+                      "description": "Contact us and we will arrange a free on-site assessment to understand your needs."
+                    },
+                    {
+                      "step": 2,
+                      "title": "Custom Plan",
+                      "description": "We create a bespoke cleaning schedule tailored to your office size and hours."
+                    },
+                    {
+                      "step": 3,
+                      "title": "Regular Cleaning",
+                      "description": "Our team arrives as scheduled and delivers consistent, high-quality results every time."
+                    },
+                    {
+                      "step": 4,
+                      "title": "Ongoing Support",
+                      "description": "We stay in touch with regular check-ins and adapt our service as your needs change."
+                    }
+                  ]
+                },
+                "id": "office-cleaning",
+                "badge": "Our Services",
+                "tagline": "A cleaner office means a sharper team.",
+                "longDescription": "First impressions matter. Our professional office cleaning service ensures your workplace is spotless, hygienic and welcoming every single day. We work around your schedule — early morning, evenings or weekends — so your business is never disrupted. From reception areas to meeting rooms, restrooms and open-plan desks, we cover it all with precision and care.",
+                "footer": "Whether it's executive boardrooms, open workstations, client reception lounges, or employee break areas, our certified commercial cleaning experts deliver an immaculate, thoroughly sanitized workspace that actively fosters team productivity, morale, and everyday wellness. We provide highly flexible scheduling options—including early mornings, evening shifts, and weekend maintenance—to ensure your daily business operations remain entirely uninterrupted. From hospital-grade surface disinfection to detailed electronic equipment wipe-downs and commercial waste management, we uphold strict standards of cleanliness that project professionalism to every visiting client and partner.",
+                "features": [
+                  "Desks, chairs and workstation sanitisation",
+                  "Reception and common area cleaning",
+                  "Meeting room preparation and cleaning",
+                  "Kitchen and breakroom cleaning",
+                  "Restroom deep cleaning and restocking",
+                  "Floor vacuuming, sweeping and mopping",
+                  "Waste collection and recycling management"
+                ],
+                "includes": [
+                  "Open-plan office areas",
+                  "Meeting & conference rooms",
+                  "Reception & lobby",
+                  "Restrooms",
+                  "Staff kitchen & break room",
+                  "Corridors & stairwells"
+                ],
+                "process": [
+                  {
+                    "step": 1,
+                    "title": "Schedule a Visit",
+                    "description": "Contact us and we will arrange a free on-site assessment to understand your needs."
+                  },
+                  {
+                    "step": 2,
+                    "title": "Custom Plan",
+                    "description": "We create a bespoke cleaning schedule tailored to your office size and hours."
+                  },
+                  {
+                    "step": 3,
+                    "title": "Regular Cleaning",
+                    "description": "Our team arrives as scheduled and delivers consistent, high-quality results every time."
+                  },
+                  {
+                    "step": 4,
+                    "title": "Ongoing Support",
+                    "description": "We stay in touch with regular check-ins and adapt our service as your needs change."
+                  }
+                ]
+              },
+              {
+                "icon": "Building2",
+                "darkIcon": false,
+                "image": "/services/office-cleaning.webp",
+                "imageAlt": "Professional office cleaning service",
+                "title": "Office Cleaning",
+                "description": "Bright, clean workspaces boost productivity.",
+                "slug": "office-cleaning",
+                "details": {
+                  "badge": "Our Services",
+                  "tagline": "A cleaner office means a sharper team.",
+                  "longDescription": "First impressions matter. Our professional office cleaning service ensures your workplace is spotless, hygienic and welcoming every single day. We work around your schedule — early morning, evenings or weekends — so your business is never disrupted. From reception areas to meeting rooms, restrooms and open-plan desks, we cover it all with precision and care.",
+                  "footer": "Whether it's executive boardrooms, open workstations, client reception lounges, or employee break areas, our certified commercial cleaning experts deliver an immaculate, thoroughly sanitized workspace that actively fosters team productivity, morale, and everyday wellness. We provide highly flexible scheduling options—including early mornings, evening shifts, and weekend maintenance—to ensure your daily business operations remain entirely uninterrupted. From hospital-grade surface disinfection to detailed electronic equipment wipe-downs and commercial waste management, we uphold strict standards of cleanliness that project professionalism to every visiting client and partner.",
+                  "features": [
+                    "Desks, chairs and workstation sanitisation",
+                    "Reception and common area cleaning",
+                    "Meeting room preparation and cleaning",
+                    "Kitchen and breakroom cleaning",
+                    "Restroom deep cleaning and restocking",
+                    "Floor vacuuming, sweeping and mopping",
+                    "Waste collection and recycling management"
+                  ],
+                  "includes": [
+                    "Open-plan office areas",
+                    "Meeting & conference rooms",
+                    "Reception & lobby",
+                    "Restrooms",
+                    "Staff kitchen & break room",
+                    "Corridors & stairwells"
+                  ],
+                  "process": [
+                    {
+                      "step": 1,
+                      "title": "Schedule a Visit",
+                      "description": "Contact us and we will arrange a free on-site assessment to understand your needs."
+                    },
+                    {
+                      "step": 2,
+                      "title": "Custom Plan",
+                      "description": "We create a bespoke cleaning schedule tailored to your office size and hours."
+                    },
+                    {
+                      "step": 3,
+                      "title": "Regular Cleaning",
+                      "description": "Our team arrives as scheduled and delivers consistent, high-quality results every time."
+                    },
+                    {
+                      "step": 4,
+                      "title": "Ongoing Support",
+                      "description": "We stay in touch with regular check-ins and adapt our service as your needs change."
+                    }
+                  ]
+                },
+                "id": "office-cleaning",
+                "badge": "Our Services",
+                "tagline": "A cleaner office means a sharper team.",
+                "longDescription": "First impressions matter. Our professional office cleaning service ensures your workplace is spotless, hygienic and welcoming every single day. We work around your schedule — early morning, evenings or weekends — so your business is never disrupted. From reception areas to meeting rooms, restrooms and open-plan desks, we cover it all with precision and care.",
+                "footer": "Whether it's executive boardrooms, open workstations, client reception lounges, or employee break areas, our certified commercial cleaning experts deliver an immaculate, thoroughly sanitized workspace that actively fosters team productivity, morale, and everyday wellness. We provide highly flexible scheduling options—including early mornings, evening shifts, and weekend maintenance—to ensure your daily business operations remain entirely uninterrupted. From hospital-grade surface disinfection to detailed electronic equipment wipe-downs and commercial waste management, we uphold strict standards of cleanliness that project professionalism to every visiting client and partner.",
+                "features": [
+                  "Desks, chairs and workstation sanitisation",
+                  "Reception and common area cleaning",
+                  "Meeting room preparation and cleaning",
+                  "Kitchen and breakroom cleaning",
+                  "Restroom deep cleaning and restocking",
+                  "Floor vacuuming, sweeping and mopping",
+                  "Waste collection and recycling management"
+                ],
+                "includes": [
+                  "Open-plan office areas",
+                  "Meeting & conference rooms",
+                  "Reception & lobby",
+                  "Restrooms",
+                  "Staff kitchen & break room",
+                  "Corridors & stairwells"
+                ],
+                "process": [
+                  {
+                    "step": 1,
+                    "title": "Schedule a Visit",
+                    "description": "Contact us and we will arrange a free on-site assessment to understand your needs."
+                  },
+                  {
+                    "step": 2,
+                    "title": "Custom Plan",
+                    "description": "We create a bespoke cleaning schedule tailored to your office size and hours."
+                  },
+                  {
+                    "step": 3,
+                    "title": "Regular Cleaning",
+                    "description": "Our team arrives as scheduled and delivers consistent, high-quality results every time."
+                  },
+                  {
+                    "step": 4,
+                    "title": "Ongoing Support",
+                    "description": "We stay in touch with regular check-ins and adapt our service as your needs change."
+                  }
+                ]
+              },
+              {
+                "icon": "CookingPot",
+                "darkIcon": true,
+                "image": "/services/kitchen-cleaning.webp",
+                "imageAlt": "Professional kitchen cleaning service",
+                "title": "Kitchen Cleaning",
+                "description": "Hygienic and spotless kitchens for safer living.",
+                "slug": "kitchen-cleaning",
+                "details": {
+                  "badge": "Our Services",
+                  "tagline": "Where food meets cleanliness —",
+                  "longDescription": "The kitchen is the heart of your home, and it deserves the deepest clean. Grease build-up, stained tiles, dirty ovens and blocked sinks are no match for our specialist kitchen cleaning team. We deep-clean every surface, appliance and hidden corner to eliminate bacteria, grime and odours — leaving you with a kitchen that looks, smells and feels brand new.",
+                  "footer": "Whether it's heavy grease on stovetops, baked-on grime inside ovens, oily extractor filters, or neglected tile splashbacks, our trained kitchen hygiene specialists utilize non-toxic, 100% food-safe degreasers and steam treatments to eliminate bacteria and stubborn carbon deposits without harsh chemical fumes. We detail every critical corner—including sink drainage traps, countertop seams, cabinet handles, and refrigerator rubber seals—ensuring an immaculate culinary space that complies with the highest standards of household food safety and everyday hygiene.",
+                  "features": [
+                    "Oven, hob and extractor fan deep cleaning",
+                    "Refrigerator interior cleaning and deodorising",
+                    "Microwave and small appliance cleaning",
+                    "Cabinet doors and handles wipe-down",
+                    "Sink and tap descaling and polishing",
+                    "Tile grout scrubbing and splash-back cleaning",
+                    "Floor degreasing and sanitisation"
+                  ],
+                  "includes": [
+                    "Oven & hob",
+                    "Extractor fan & filters",
+                    "Fridge & microwave",
+                    "Countertops & backsplash",
+                    "Sink & taps",
+                    "Cabinet fronts & handles"
+                  ],
+                  "process": [
+                    {
+                      "step": 1,
+                      "title": "Book Your Clean",
+                      "description": "Select kitchen cleaning, pick your slot, and we will confirm within minutes."
+                    },
+                    {
+                      "step": 2,
+                      "title": "Pre-Clean Assessment",
+                      "description": "Our specialist assesses grease levels and trouble areas before starting."
+                    },
+                    {
+                      "step": 3,
+                      "title": "Deep Clean & Degrease",
+                      "description": "We apply professional-grade degreasers and scrub every surface to perfection."
+                    },
+                    {
+                      "step": 4,
+                      "title": "Sanitise & Shine",
+                      "description": "We sanitise all work surfaces and leave your kitchen sparkling and hygienic."
+                    }
+                  ]
+                },
+                "id": "kitchen-cleaning",
+                "badge": "Our Services",
+                "tagline": "Where food meets cleanliness —",
+                "longDescription": "The kitchen is the heart of your home, and it deserves the deepest clean. Grease build-up, stained tiles, dirty ovens and blocked sinks are no match for our specialist kitchen cleaning team. We deep-clean every surface, appliance and hidden corner to eliminate bacteria, grime and odours — leaving you with a kitchen that looks, smells and feels brand new.",
+                "footer": "Whether it's heavy grease on stovetops, baked-on grime inside ovens, oily extractor filters, or neglected tile splashbacks, our trained kitchen hygiene specialists utilize non-toxic, 100% food-safe degreasers and steam treatments to eliminate bacteria and stubborn carbon deposits without harsh chemical fumes. We detail every critical corner—including sink drainage traps, countertop seams, cabinet handles, and refrigerator rubber seals—ensuring an immaculate culinary space that complies with the highest standards of household food safety and everyday hygiene.",
+                "features": [
+                  "Oven, hob and extractor fan deep cleaning",
+                  "Refrigerator interior cleaning and deodorising",
+                  "Microwave and small appliance cleaning",
+                  "Cabinet doors and handles wipe-down",
+                  "Sink and tap descaling and polishing",
+                  "Tile grout scrubbing and splash-back cleaning",
+                  "Floor degreasing and sanitisation"
+                ],
+                "includes": [
+                  "Oven & hob",
+                  "Extractor fan & filters",
+                  "Fridge & microwave",
+                  "Countertops & backsplash",
+                  "Sink & taps",
+                  "Cabinet fronts & handles"
+                ],
+                "process": [
+                  {
+                    "step": 1,
+                    "title": "Book Your Clean",
+                    "description": "Select kitchen cleaning, pick your slot, and we will confirm within minutes."
+                  },
+                  {
+                    "step": 2,
+                    "title": "Pre-Clean Assessment",
+                    "description": "Our specialist assesses grease levels and trouble areas before starting."
+                  },
+                  {
+                    "step": 3,
+                    "title": "Deep Clean & Degrease",
+                    "description": "We apply professional-grade degreasers and scrub every surface to perfection."
+                  },
+                  {
+                    "step": 4,
+                    "title": "Sanitise & Shine",
+                    "description": "We sanitise all work surfaces and leave your kitchen sparkling and hygienic."
+                  }
+                ]
+              },
+              {
+                "icon": "Bath",
+                "darkIcon": false,
+                "image": "/services/bathroom-cleaning.webp",
+                "imageAlt": "Professional bathroom cleaning service",
+                "title": "Bathroom Cleaning",
+                "description": "Deep cleaning for a fresh and germ-free bathroom.",
+                "slug": "bathroom-cleaning",
+                "details": {
+                  "badge": "Our Services",
+                  "tagline": "Sparkling tiles, zero germs — ",
+                  "longDescription": "Bathrooms harbour more bacteria than any other room in the house. Our deep bathroom cleaning service eliminates 99.9% of germs using hospital-grade disinfectants and professional equipment. We scrub tiles and grout, descale taps and showerheads, clean behind the toilet, and leave every surface gleaming. Enjoy a fresh, spa-like bathroom without lifting a finger.",
+                  "footer": "Whether it's stubborn hard-water limescale on shower screens, discoloured tile grout lines, calcium deposits on chrome taps, or deep toilet bowl disinfection, our certified hygiene professionals apply hospital-grade sanitizers to eradicate 99.9% of bacteria, mildew, and foul odours. We scrub and polish every fixture to a mirror-like shine, paying meticulous attention to wall tiles, mirror surfaces, vanity cabinetry, and floor drains, leaving you with a sparkling, germ-free bathroom that feels truly fresh and spa-like.",
+                  "features": [
+                    "Toilet deep scrub and disinfection inside and out",
+                    "Shower, bath and tile grout scrubbing",
+                    "Tap, showerhead and fixture descaling",
+                    "Mirror and glass polishing",
+                    "Floor cleaning and sanitisation",
+                    "Vanity, sink and cabinet cleaning",
+                    "Mould and mildew treatment"
+                  ],
+                  "includes": [
+                    "Toilet (inside & outside)",
+                    "Shower & bathtub",
+                    "Tiles & grout",
+                    "Sink & vanity",
+                    "Mirrors & glass",
+                    "Floor & drainage"
+                  ],
+                  "process": [
+                    {
+                      "step": 1,
+                      "title": "Book Online",
+                      "description": "Choose your date and we will dispatch a specialist bathroom cleaner."
+                    },
+                    {
+                      "step": 2,
+                      "title": "Treatment Application",
+                      "description": "We pre-treat hard water stains, soap scum and mould with specialist products."
+                    },
+                    {
+                      "step": 3,
+                      "title": "Scrub & Disinfect",
+                      "description": "Every surface is scrubbed, disinfected and rinsed to hospital-grade standards."
+                    },
+                    {
+                      "step": 4,
+                      "title": "Polish & Finish",
+                      "description": "We polish mirrors, taps and glass for a streak-free, spa-like finish."
+                    }
+                  ]
+                },
+                "id": "bathroom-cleaning",
+                "badge": "Our Services",
+                "tagline": "Sparkling tiles, zero germs — ",
+                "longDescription": "Bathrooms harbour more bacteria than any other room in the house. Our deep bathroom cleaning service eliminates 99.9% of germs using hospital-grade disinfectants and professional equipment. We scrub tiles and grout, descale taps and showerheads, clean behind the toilet, and leave every surface gleaming. Enjoy a fresh, spa-like bathroom without lifting a finger.",
+                "footer": "Whether it's stubborn hard-water limescale on shower screens, discoloured tile grout lines, calcium deposits on chrome taps, or deep toilet bowl disinfection, our certified hygiene professionals apply hospital-grade sanitizers to eradicate 99.9% of bacteria, mildew, and foul odours. We scrub and polish every fixture to a mirror-like shine, paying meticulous attention to wall tiles, mirror surfaces, vanity cabinetry, and floor drains, leaving you with a sparkling, germ-free bathroom that feels truly fresh and spa-like.",
+                "features": [
+                  "Toilet deep scrub and disinfection inside and out",
+                  "Shower, bath and tile grout scrubbing",
+                  "Tap, showerhead and fixture descaling",
+                  "Mirror and glass polishing",
+                  "Floor cleaning and sanitisation",
+                  "Vanity, sink and cabinet cleaning",
+                  "Mould and mildew treatment"
+                ],
+                "includes": [
+                  "Toilet (inside & outside)",
+                  "Shower & bathtub",
+                  "Tiles & grout",
+                  "Sink & vanity",
+                  "Mirrors & glass",
+                  "Floor & drainage"
+                ],
+                "process": [
+                  {
+                    "step": 1,
+                    "title": "Book Online",
+                    "description": "Choose your date and we will dispatch a specialist bathroom cleaner."
+                  },
+                  {
+                    "step": 2,
+                    "title": "Treatment Application",
+                    "description": "We pre-treat hard water stains, soap scum and mould with specialist products."
+                  },
+                  {
+                    "step": 3,
+                    "title": "Scrub & Disinfect",
+                    "description": "Every surface is scrubbed, disinfected and rinsed to hospital-grade standards."
+                  },
+                  {
+                    "step": 4,
+                    "title": "Polish & Finish",
+                    "description": "We polish mirrors, taps and glass for a streak-free, spa-like finish."
+                  }
+                ]
+              },
+              {
+                "icon": "Sofa",
+                "darkIcon": true,
+                "image": "/services/carpet-cleaning.webp",
+                "imageAlt": "Professional carpet & sofa cleaning service",
+                "title": "Carpet & Sofa Cleaning",
+                "description": "Remove dust, stains and allergens for a fresher home.",
+                "slug": "carpet-sofa-cleaning",
+                "details": {
+                  "badge": "Our Services",
+                  "tagline": "Restore the softness ",
+                  "longDescription": "Carpets and sofas trap dust mites, allergens, pet hair and stains deep within their fibres. Our hot-water extraction and steam cleaning methods reach far beyond the surface to restore your upholstery and carpets to their original freshness. Whether it is a stubborn wine stain, pet odour, or years of accumulated dust, we have the expertise and equipment to handle it all.",
+                  "footer": "Whether it's luxury velvet armchairs, high-traffic living room carpets, delicate wool oriental rugs, or fabric dining chairs, our certified fabric technicians use advanced dual-chamber hot-water extraction and pressurized steam to extract deeply embedded dirt, pet dander, dust mites, and persistent stains without harming delicate fibres. We apply specialized pH-balanced spot treatments and non-toxic deodorizers, followed by rapid moisture extraction to ensure fast drying times and a revitalized, velvety texture that looks and smells like brand new.",
+                  "features": [
+                    "Hot-water extraction deep carpet cleaning",
+                    "Steam cleaning for sofas and upholstered furniture",
+                    "Stain and spot treatment for tough marks",
+                    "Pet hair and dander removal",
+                    "Odour neutralisation and deodorising",
+                    "Anti-allergen treatment available",
+                    "Fast drying times with professional equipment"
+                  ],
+                  "includes": [
+                    "All carpet types",
+                    "Sofas & armchairs",
+                    "Dining & office chairs",
+                    "Rugs & mats",
+                    "Stain treatment",
+                    "Odour removal"
+                  ],
+                  "process": [
+                    {
+                      "step": 1,
+                      "title": "Free Assessment",
+                      "description": "We assess the fabric type, stain severity and cleaning requirements."
+                    },
+                    {
+                      "step": 2,
+                      "title": "Pre-Treatment",
+                      "description": "Stubborn stains and high-traffic areas receive targeted pre-treatment solutions."
+                    },
+                    {
+                      "step": 3,
+                      "title": "Deep Extraction",
+                      "description": "Our hot-water extraction method removes dirt, allergens and bacteria from deep within fibres."
+                    },
+                    {
+                      "step": 4,
+                      "title": "Dry & Refresh",
+                      "description": "We speed-dry your carpets and sofas and apply a fresh-scent finish."
+                    }
+                  ]
+                },
+                "id": "carpet-sofa-cleaning",
+                "badge": "Our Services",
+                "tagline": "Restore the softness ",
+                "longDescription": "Carpets and sofas trap dust mites, allergens, pet hair and stains deep within their fibres. Our hot-water extraction and steam cleaning methods reach far beyond the surface to restore your upholstery and carpets to their original freshness. Whether it is a stubborn wine stain, pet odour, or years of accumulated dust, we have the expertise and equipment to handle it all.",
+                "footer": "Whether it's luxury velvet armchairs, high-traffic living room carpets, delicate wool oriental rugs, or fabric dining chairs, our certified fabric technicians use advanced dual-chamber hot-water extraction and pressurized steam to extract deeply embedded dirt, pet dander, dust mites, and persistent stains without harming delicate fibres. We apply specialized pH-balanced spot treatments and non-toxic deodorizers, followed by rapid moisture extraction to ensure fast drying times and a revitalized, velvety texture that looks and smells like brand new.",
+                "features": [
+                  "Hot-water extraction deep carpet cleaning",
+                  "Steam cleaning for sofas and upholstered furniture",
+                  "Stain and spot treatment for tough marks",
+                  "Pet hair and dander removal",
+                  "Odour neutralisation and deodorising",
+                  "Anti-allergen treatment available",
+                  "Fast drying times with professional equipment"
+                ],
+                "includes": [
+                  "All carpet types",
+                  "Sofas & armchairs",
+                  "Dining & office chairs",
+                  "Rugs & mats",
+                  "Stain treatment",
+                  "Odour removal"
+                ],
+                "process": [
+                  {
+                    "step": 1,
+                    "title": "Free Assessment",
+                    "description": "We assess the fabric type, stain severity and cleaning requirements."
+                  },
+                  {
+                    "step": 2,
+                    "title": "Pre-Treatment",
+                    "description": "Stubborn stains and high-traffic areas receive targeted pre-treatment solutions."
+                  },
+                  {
+                    "step": 3,
+                    "title": "Deep Extraction",
+                    "description": "Our hot-water extraction method removes dirt, allergens and bacteria from deep within fibres."
+                  },
+                  {
+                    "step": 4,
+                    "title": "Dry & Refresh",
+                    "description": "We speed-dry your carpets and sofas and apply a fresh-scent finish."
+                  }
+                ]
+              },
+              {
+                "icon": "Sparkles",
+                "darkIcon": false,
+                "image": "/services/window-cleaning.webp",
+                "imageAlt": "Professional window and glass cleaning service",
+                "title": "Window & Glass Cleaning",
+                "description": "Streak-free shine and crystal-clear views for every window.",
+                "slug": "window-cleaning",
+                "details": {
+                  "badge": "Our Services",
+                  "tagline": "Crystal clear views, streak-free clarity — ",
+                  "longDescription": "Dirty windows, hard water spots and dust accumulation can dim the natural light in your home or office. Our professional window and glass cleaning service uses purified water, eco-friendly streak-free solutions, and specialized squeegees to deliver impeccable transparency. We clean interior and exterior glass, frames, sills, and tracks for both residential and commercial buildings.",
+                  "footer": "Whether it's architectural floor-to-ceiling glass, high-reach skylights, office glass partitions, decorative balustrades, or sliding patio doors, our trained glass specialists guarantee streak-free, crystal-clear transparency using five-stage deionized purified water technology. We do not just wash the glass—we meticulously scrub window tracks, vacuum sill crevices, wipe down weather-sealed frames, and remove mineral scale, pollen, and environmental fallout to maximize natural sunlight and elevate your home or commercial views.",
+                  "features": [
+                    "Interior and exterior window glass cleaning",
+                    "Streak-free purified water wash system",
+                    "Window frame, tracks and sill detailing",
+                    "Hard water stain and mineral deposit removal",
+                    "Skylights, mirrors and glass partition cleaning",
+                    "Safe multi-storey access equipment and techniques",
+                    "Eco-friendly, chemical-residue-free solutions"
+                  ],
+                  "includes": [
+                    "Interior & exterior panes",
+                    "Frames & sills",
+                    "Window tracks",
+                    "Glass balustrades & mirrors",
+                    "Fly screen dusting",
+                    "Hard water spot removal"
+                  ],
+                  "process": [
+                    {
+                      "step": 1,
+                      "title": "Free Inspection",
+                      "description": "We examine window types, height access and glass conditions to plan the optimal cleaning approach."
+                    },
+                    {
+                      "step": 2,
+                      "title": "Pre-Treatment",
+                      "description": "Hard water minerals, pollen and bird lime are pre-treated with gentle eco-solutions."
+                    },
+                    {
+                      "step": 3,
+                      "title": "Purified Water Wash",
+                      "description": "We squeegee and wash every pane using purified water technology for zero spotting or streaks."
+                    },
+                    {
+                      "step": 4,
+                      "title": "Frame & Sill Detailing",
+                      "description": "Frames, sills and tracks are wiped dry and inspected for a flawless crystal-clear finish."
+                    }
+                  ]
+                },
+                "id": "window-cleaning",
+                "badge": "Our Services",
+                "tagline": "Crystal clear views, streak-free clarity — ",
+                "longDescription": "Dirty windows, hard water spots and dust accumulation can dim the natural light in your home or office. Our professional window and glass cleaning service uses purified water, eco-friendly streak-free solutions, and specialized squeegees to deliver impeccable transparency. We clean interior and exterior glass, frames, sills, and tracks for both residential and commercial buildings.",
+                "footer": "Whether it's architectural floor-to-ceiling glass, high-reach skylights, office glass partitions, decorative balustrades, or sliding patio doors, our trained glass specialists guarantee streak-free, crystal-clear transparency using five-stage deionized purified water technology. We do not just wash the glass—we meticulously scrub window tracks, vacuum sill crevices, wipe down weather-sealed frames, and remove mineral scale, pollen, and environmental fallout to maximize natural sunlight and elevate your home or commercial views.",
+                "features": [
+                  "Interior and exterior window glass cleaning",
+                  "Streak-free purified water wash system",
+                  "Window frame, tracks and sill detailing",
+                  "Hard water stain and mineral deposit removal",
+                  "Skylights, mirrors and glass partition cleaning",
+                  "Safe multi-storey access equipment and techniques",
+                  "Eco-friendly, chemical-residue-free solutions"
+                ],
+                "includes": [
+                  "Interior & exterior panes",
+                  "Frames & sills",
+                  "Window tracks",
+                  "Glass balustrades & mirrors",
+                  "Fly screen dusting",
+                  "Hard water spot removal"
+                ],
+                "process": [
+                  {
+                    "step": 1,
+                    "title": "Free Inspection",
+                    "description": "We examine window types, height access and glass conditions to plan the optimal cleaning approach."
+                  },
+                  {
+                    "step": 2,
+                    "title": "Pre-Treatment",
+                    "description": "Hard water minerals, pollen and bird lime are pre-treated with gentle eco-solutions."
+                  },
+                  {
+                    "step": 3,
+                    "title": "Purified Water Wash",
+                    "description": "We squeegee and wash every pane using purified water technology for zero spotting or streaks."
+                  },
+                  {
+                    "step": 4,
+                    "title": "Frame & Sill Detailing",
+                    "description": "Frames, sills and tracks are wiped dry and inspected for a flawless crystal-clear finish."
+                  }
+                ]
+              },
+              {
+                "icon": "ShieldCheck",
+                "darkIcon": true,
+                "image": "/services/deep-cleaning.webp",
+                "imageAlt": "Professional deep and move-in cleaning service",
+                "title": "Deep & Move-In Cleaning",
+                "description": "Intensive whole-home detailing and sanitization from top to bottom.",
+                "slug": "deep-cleaning",
+                "details": {
+                  "badge": "Our Services",
+                  "tagline": "Every corner detailed, every germ eradicated — ",
+                  "longDescription": "Our intensive deep cleaning service goes far beyond surface dusting. Designed for seasonal spring cleans, end-of-tenancy inspections, and move-in/move-out readiness, we sanitize every hidden nook and cranny. From behind major appliances and inside empty cabinets to high baseboards, grout lines, and ceiling fans, we ensure your living space is pristine, safe, and move-in ready.",
+                  "footer": "Whether you are moving into a newly acquired property, preparing an end-of-tenancy handover for full security deposit return, or conducting an essential seasonal refresh, our certified deep cleaning crew delivers rigorous, top-to-bottom sanitization that leaves zero corners unattended. We detail neglected baseboards, scrub grout lines, sanitize appliance interiors and behind heavy furniture, wash interior door frames, and disinfect high-contact switch plates to guarantee an immaculate living environment that satisfies the strictest homeowner and leasing inspection standards.",
+                  "features": [
+                    "Behind & underneath heavy appliances cleaning",
+                    "Inside kitchen cabinets, drawers and pantry wipe-down",
+                    "Deep tile grout scrubbing and lime-scale removal",
+                    "Detailed baseboards, door frames and light switches",
+                    "High-touch point disinfection and sanitization",
+                    "End-of-lease bond back guaranteed standards",
+                    "Hospital-grade non-toxic disinfectants"
+                  ],
+                  "includes": [
+                    "Complete room detailing",
+                    "Inside all empty cupboards",
+                    "Behind appliances",
+                    "Doors, frames & baseboards",
+                    "Light fixtures & switches",
+                    "Sanitized floors & tiles"
+                  ],
+                  "process": [
+                    {
+                      "step": 1,
+                      "title": "Initial Walkthrough",
+                      "description": "We evaluate priority zones and specific landlord or homeowner checklists."
+                    },
+                    {
+                      "step": 2,
+                      "title": "High-to-Low Dusting",
+                      "description": "Cobwebs, vents, light fixtures and doorframes are thoroughly cleared from ceiling to floor."
+                    },
+                    {
+                      "step": 3,
+                      "title": "Intensive Sanitization",
+                      "description": "Appliance backs, cabinet interiors, tiles, and fixtures are deep scrubbed and sanitized."
+                    },
+                    {
+                      "step": 4,
+                      "title": "Final Quality Sign-Off",
+                      "description": "We conduct a detailed 50-point checklist inspection to ensure 100% satisfaction."
+                    }
+                  ]
+                },
+                "id": "deep-cleaning",
+                "badge": "Our Services",
+                "tagline": "Every corner detailed, every germ eradicated — ",
+                "longDescription": "Our intensive deep cleaning service goes far beyond surface dusting. Designed for seasonal spring cleans, end-of-tenancy inspections, and move-in/move-out readiness, we sanitize every hidden nook and cranny. From behind major appliances and inside empty cabinets to high baseboards, grout lines, and ceiling fans, we ensure your living space is pristine, safe, and move-in ready.",
+                "footer": "Whether you are moving into a newly acquired property, preparing an end-of-tenancy handover for full security deposit return, or conducting an essential seasonal refresh, our certified deep cleaning crew delivers rigorous, top-to-bottom sanitization that leaves zero corners unattended. We detail neglected baseboards, scrub grout lines, sanitize appliance interiors and behind heavy furniture, wash interior door frames, and disinfect high-contact switch plates to guarantee an immaculate living environment that satisfies the strictest homeowner and leasing inspection standards.",
+                "features": [
+                  "Behind & underneath heavy appliances cleaning",
+                  "Inside kitchen cabinets, drawers and pantry wipe-down",
+                  "Deep tile grout scrubbing and lime-scale removal",
+                  "Detailed baseboards, door frames and light switches",
+                  "High-touch point disinfection and sanitization",
+                  "End-of-lease bond back guaranteed standards",
+                  "Hospital-grade non-toxic disinfectants"
+                ],
+                "includes": [
+                  "Complete room detailing",
+                  "Inside all empty cupboards",
+                  "Behind appliances",
+                  "Doors, frames & baseboards",
+                  "Light fixtures & switches",
+                  "Sanitized floors & tiles"
+                ],
+                "process": [
+                  {
+                    "step": 1,
+                    "title": "Initial Walkthrough",
+                    "description": "We evaluate priority zones and specific landlord or homeowner checklists."
+                  },
+                  {
+                    "step": 2,
+                    "title": "High-to-Low Dusting",
+                    "description": "Cobwebs, vents, light fixtures and doorframes are thoroughly cleared from ceiling to floor."
+                  },
+                  {
+                    "step": 3,
+                    "title": "Intensive Sanitization",
+                    "description": "Appliance backs, cabinet interiors, tiles, and fixtures are deep scrubbed and sanitized."
+                  },
+                  {
+                    "step": 4,
+                    "title": "Final Quality Sign-Off",
+                    "description": "We conduct a detailed 50-point checklist inspection to ensure 100% satisfaction."
+                  }
+                ]
+              },
+              {
+                "icon": "Building",
+                "darkIcon": false,
+                "image": "/services/commercial-cleaning.webp",
+                "imageAlt": "Professional commercial facility cleaning service",
+                "title": "Commercial & Facility Cleaning",
+                "description": "Industrial-grade facility maintenance and post-construction detailing.",
+                "slug": "commercial-cleaning",
+                "details": {
+                  "badge": "Our Services",
+                  "tagline": "Built for business, perfected for people — ",
+                  "longDescription": "High-traffic commercial spaces demand heavy-duty cleaning and meticulous presentation. PureShine provides end-to-end facility detailing for retail storefronts, showrooms, corporate lobbies, medical clinics, and post-construction job sites. Equipped with industrial floor scrubbers, HEPA vacuums, and commercial pressure washers, we keep your business immaculate, safe, and compliant.",
+                  "footer": "Whether managing a high-footfall retail showroom, multi-tenant corporate facility, fitness centre, educational institution, or healthcare clinic, our bonded and insured commercial sanitation crew provides reliable, high-spec facility care tailored to rigorous industry regulations. We deploy commercial ride-on scrubbers, electrostatic disinfectant sprayers, and HEPA particulate air scrubbers on flexible night-shift and weekend rosters, ensuring seamless business operations, spotless customer-facing areas, and a pristine, compliant working atmosphere for your staff and clients.",
+                  "features": [
+                    "Industrial floor scrubbing, buffing and polishing",
+                    "Post-construction dust extraction and debris removal",
+                    "High-traffic retail and corporate lobby maintenance",
+                    "Commercial restroom multi-point sanitization",
+                    "HEPA air filtration and particulate vacuuming",
+                    "OSHA and health-code compliant protocols",
+                    "Flexible night-shift and weekend service rosters"
+                  ],
+                  "includes": [
+                    "Commercial lobbies & halls",
+                    "Retail display areas",
+                    "Polished concrete & terrazzo",
+                    "High-touch sanitization",
+                    "Industrial waste removal",
+                    "Facility restrooms"
+                  ],
+                  "process": [
+                    {
+                      "step": 1,
+                      "title": "Facility Audit",
+                      "description": "We assess your square footage, flooring types, and shift schedules to draft an SLA."
+                    },
+                    {
+                      "step": 2,
+                      "title": "Heavy Debris Extraction",
+                      "description": "Industrial vacuums and sweepers eliminate fine drywall dust and high-traffic dirt."
+                    },
+                    {
+                      "step": 3,
+                      "title": "Machine Scrub & Polish",
+                      "description": "Commercial ride-on and walk-behind scrubbers deep-clean and polish all floor surfaces."
+                    },
+                    {
+                      "step": 4,
+                      "title": "Certified Sign-Off",
+                      "description": "Our site supervisor verifies all health and safety checklists for immediate handover."
+                    }
+                  ]
+                },
+                "id": "commercial-cleaning",
+                "badge": "Our Services",
+                "tagline": "Built for business, perfected for people — ",
+                "longDescription": "High-traffic commercial spaces demand heavy-duty cleaning and meticulous presentation. PureShine provides end-to-end facility detailing for retail storefronts, showrooms, corporate lobbies, medical clinics, and post-construction job sites. Equipped with industrial floor scrubbers, HEPA vacuums, and commercial pressure washers, we keep your business immaculate, safe, and compliant.",
+                "footer": "Whether managing a high-footfall retail showroom, multi-tenant corporate facility, fitness centre, educational institution, or healthcare clinic, our bonded and insured commercial sanitation crew provides reliable, high-spec facility care tailored to rigorous industry regulations. We deploy commercial ride-on scrubbers, electrostatic disinfectant sprayers, and HEPA particulate air scrubbers on flexible night-shift and weekend rosters, ensuring seamless business operations, spotless customer-facing areas, and a pristine, compliant working atmosphere for your staff and clients.",
+                "features": [
+                  "Industrial floor scrubbing, buffing and polishing",
+                  "Post-construction dust extraction and debris removal",
+                  "High-traffic retail and corporate lobby maintenance",
+                  "Commercial restroom multi-point sanitization",
+                  "HEPA air filtration and particulate vacuuming",
+                  "OSHA and health-code compliant protocols",
+                  "Flexible night-shift and weekend service rosters"
+                ],
+                "includes": [
+                  "Commercial lobbies & halls",
+                  "Retail display areas",
+                  "Polished concrete & terrazzo",
+                  "High-touch sanitization",
+                  "Industrial waste removal",
+                  "Facility restrooms"
+                ],
+                "process": [
+                  {
+                    "step": 1,
+                    "title": "Facility Audit",
+                    "description": "We assess your square footage, flooring types, and shift schedules to draft an SLA."
+                  },
+                  {
+                    "step": 2,
+                    "title": "Heavy Debris Extraction",
+                    "description": "Industrial vacuums and sweepers eliminate fine drywall dust and high-traffic dirt."
+                  },
+                  {
+                    "step": 3,
+                    "title": "Machine Scrub & Polish",
+                    "description": "Commercial ride-on and walk-behind scrubbers deep-clean and polish all floor surfaces."
+                  },
+                  {
+                    "step": 4,
+                    "title": "Certified Sign-Off",
+                    "description": "Our site supervisor verifies all health and safety checklists for immediate handover."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "ServiceDetail": {
+        "variants": {
+          "CleaningServiceDetail1": {
+            "defaultTitle": "Service Details",
+            "defaultBreadcrumb": "Service Details",
+            "heroBackground": "/about-hero.webp",
+            "featuresSection": {
+              "badge": "Everything We Cover",
+              "heading": "Full List of Features",
+              "description": "Every clean is performed to the highest standard. Here is exactly what is included when you book with PureShine ."
+            },
+            "includedSection": {
+              "badge": "Areas Covered",
+              "heading": "What's Included",
+              "description": "We make sure no corner is missed. Our thorough checklist covers all the following areas."
+            },
+            "processSection": {
+              "badge": "How It Works",
+              "heading": "Our Simple 4-Step Process",
+              "description": "Booking and getting a professional clean has never been easier."
+            },
+            "ctaSection": {
+              "heading": "Ready for a Spotless Clean?",
+              "description": "Book today and experience the PureShine difference. Fast response, professional team, guaranteed results.",
+              "bookButton": {
+                "label": "Book Now",
+                "href": "/contact"
+              },
+              "servicesButton": {
+                "label": "All Services",
+                "href": "/services"
+              }
+            }
+          }
+        }
+      },
+      "Testimonial": {
+        "variants": {
+          "CleaningTestimonial1": {
+            "heading": "Our Happy Clients",
+            "subheading": "Say It Best",
+            "description": "Here is what our valued clients have to say about our cleaning services.",
+            "items": [
+              {
+                "name": "Priya Sharma",
+                "role": "Homeowner, Delhi",
+                "image": "/testimonials/priya.png",
+                "review": "Excellent service! The team was punctual, professional and left our home spotlessly clean. I am really impressed with their attention to detail. Highly recommended!",
+                "rating": 5
+              },
+              {
+                "name": "Rahul Mehta",
+                "role": "Business Owner, Noida",
+                "image": "/testimonials/rahul.png",
+                "review": "We hired them for office cleaning and the results are amazing. The workspace feels fresher, cleaner and more productive. Great team and very reliable service.",
+                "rating": 5
+              },
+              {
+                "name": "Anjali Verma",
+                "role": "Apartment Resident, Gurgaon",
+                "image": "/testimonials/anjali.png",
+                "review": "Very professional and trustworthy cleaning service. They cleaned my apartment thoroughly and used eco-friendly products, which I really appreciate. Will definitely book again!",
+                "rating": 5
+              },
+              {
+                "name": "Amit Kapoor",
+                "role": "Homeowner, Noida",
+                "image": "/testimonials/amit.jpg",
+                "review": "The cleaning team arrived on time and did an excellent job. Everything looked fresh and spotless after the service.",
+                "rating": 5
+              },
+              {
+                "name": "Neha Singh",
+                "role": "Working Professional, Delhi",
+                "image": "/testimonials/neha.jpg",
+                "review": "Very smooth booking process and excellent cleaning quality. The staff was polite, careful and professional throughout.",
+                "rating": 5
+              }
+            ]
+          }
+        }
+      },
+      "FAQ": {
+        "variants": {
+          "CleaningFAQ1": {
+            "badge": "FAQ",
+            "heading": "Frequently Asked",
+            "headingHighlight": "Questions",
+            "description": "Find quick answers to common questions about our cleaning services. If you need more information, feel free to contact our team.",
+            "leafImage": "/leaf.png",
+            "leafImageAlt": "leaf",
+            "defaultLimit": 8,
+            "contactCard": {
+              "icon": "Headphones",
+              "title": "Still have questions?",
+              "description": "We're here to help! Contact our support team anytime.",
+              "button": {
+                "label": "Contact Us",
+                "href": "/contact",
+                "arrow": "→"
+              }
+            },
+            "hero": {
+              "title": "Our FAQs",
+              "breadcrumb": "Our FAQs",
+              "backgroundImage": "/about-hero.webp"
+            },
+            "items": [
+              {
+                "icon": "Home",
+                "question": "What cleaning services do you offer?",
+                "answer": "We provide home cleaning, office cleaning, kitchen cleaning, bathroom cleaning, carpet and sofa cleaning, deep cleaning and other customized cleaning services."
+              },
+              {
+                "icon": "CalendarDays",
+                "question": "How do I book a cleaning service?",
+                "answer": "You can book a cleaning service through our online booking form or contact our team directly. Simply select your preferred service, date and time."
+              },
+              {
+                "icon": "Leaf",
+                "question": "Are your cleaning products safe?",
+                "answer": "Yes. We use carefully selected cleaning products that are safe for homes, workplaces and everyday environments."
+              },
+              {
+                "icon": "Coins",
+                "question": "How much do your services cost?",
+                "answer": "Pricing depends on the type of cleaning, property size and cleaning requirements. Contact us for a customized quote."
+              },
+              {
+                "icon": "SprayCan",
+                "question": "Do I need to provide cleaning supplies?",
+                "answer": "No. Our professional team generally brings the required cleaning equipment and products. If you have any specific product preference, you can let us know."
+              },
+              {
+                "icon": "Clock3",
+                "question": "How long does a cleaning session take?",
+                "answer": "The duration depends on the size of the property and the type of cleaning service selected. Our team can provide an estimated duration during booking."
+              },
+              {
+                "icon": "Clock3",
+                "question": "Do you offer same-day cleaning?",
+                "answer": "Same-day cleaning may be available depending on our schedule and your location. Contact us to check availability."
+              },
+              {
+                "icon": "ShieldCheck",
+                "question": "What if I am not satisfied with the cleaning?",
+                "answer": "Customer satisfaction is important to us. If there is an issue with the service, contact our support team and we will discuss the appropriate solution."
+              },
+              {
+                "icon": "Users",
+                "question": "Are your cleaners background-checked and trained?",
+                "answer": "Yes, every cleaner undergoes rigorous background verification, in-person interviews, and comprehensive hands-on training before joining our service team."
+              },
+              {
+                "icon": "Repeat",
+                "question": "Do you offer recurring cleaning subscription plans?",
+                "answer": "Yes! We offer flexible weekly, bi-weekly, and monthly recurring plans with special discounted rates and priority scheduling."
+              },
+              {
+                "icon": "CreditCard",
+                "question": "What payment methods do you accept?",
+                "answer": "We accept all major credit and debit cards, UPI, net banking, and secure online payment gateways. Invoices are provided after every completed clean."
+              },
+              {
+                "icon": "Sparkles",
+                "question": "What is the difference between regular and deep cleaning?",
+                "answer": "Regular cleaning covers routine upkeep like dusting, vacuuming, and surface sanitization, while deep cleaning tackles hidden grime, inside appliances, grout lines, and behind heavy furniture."
+              },
+              {
+                "icon": "Shield",
+                "question": "Is PureShine insured and bonded?",
+                "answer": "Yes, our cleaning operations and professional teams are fully insured and bonded to give you complete peace of mind while we care for your space."
+              },
+              {
+                "icon": "FileCheck",
+                "question": "What is your cancellation or rescheduling policy?",
+                "answer": "You can reschedule or cancel your booking free of charge up to 24 hours before your scheduled appointment time through your account or by contacting support."
+              }
+            ]
+          }
+        }
+      },
+      "BlogPage": {
+        "variants": {
+          "CleaningBlogPage1": {
+            "hero": {
+              "title": "Our Blog",
+              "breadcrumb": "Our Blog",
+              "backgroundImage": "/about-hero.webp"
+            },
+            "detailPage": {
+              "backgroundImage": "/about-hero.webp"
+            },
+            "items": [
+              {
+                "id": "how-professional-cleaning-services-improve-your-home",
+                "slug": "how-professional-cleaning-services-improve-your-home",
+                "numericId": "1",
+                "title": "How Professional Cleaning Services Improve Your Home",
+                "description": "Discover how professional cleaning services elevate indoor air quality, save valuable time, and keep your home fresh and immaculate.",
+                "category": "Cleaning Tips",
+                "date": "September 20, 2026",
+                "shortDate": "Sep 20, 2026",
+                "day": "20",
+                "month": "SEP",
+                "author": "Admin",
+                "role": "Cleaning Expert",
+                "image": "/aboutCleaning.webp",
+                "comments": 12,
+                "content": [
+                  {
+                    "heading": "Why Professional Cleaning Matters",
+                    "text": "A clean home is more than just visually appealing — it is a foundation for better health, reduced stress, and a more comfortable everyday life. Professional cleaning services bring a level of thoroughness that is very difficult to match with regular household routines. Trained cleaners know exactly where bacteria, dust mites and allergens hide, and they have the right tools and techniques to eliminate them effectively."
+                  },
+                  {
+                    "heading": "Save Time and Reduce Stress",
+                    "text": "Modern life is busy. Between work commitments, family responsibilities and personal time, deep cleaning often falls to the bottom of the priority list. Hiring a professional cleaning team means you can reclaim those lost hours and spend them on what matters most to you. There is also a significant mental benefit — a clean, organised home has been shown to reduce anxiety and improve focus and mood."
+                  },
+                  {
+                    "heading": "Protect Your Home's Value",
+                    "text": "Regular professional maintenance helps protect the value of your home by preventing the build-up of grime that can damage surfaces, stain tiles and degrade flooring over time. Clean windows, sealed grout, properly maintained carpets and spotless appliances all contribute to a home that stays in excellent condition for longer. Think of professional cleaning not as an expense but as an investment in your property."
+                  }
+                ]
+              },
+              {
+                "id": "easy-ways-to-keep-your-office-clean",
+                "slug": "easy-ways-to-keep-your-office-clean",
+                "numericId": "2",
+                "title": "Easy Ways to Keep Your Office Clean",
+                "description": "Simple and practical workplace maintenance strategies to boost team productivity, minimize clutter, and support employee health.",
+                "category": "Office Cleaning",
+                "date": "September 15, 2026",
+                "shortDate": "Sep 15, 2026",
+                "day": "15",
+                "month": "SEP",
+                "author": "Admin",
+                "role": "Cleaning Expert",
+                "image": "/services/office-cleaning.webp",
+                "comments": 8,
+                "content": [
+                  {
+                    "heading": "A Clean Office Is a Productive Office",
+                    "text": "The state of your office environment has a direct and measurable impact on employee productivity, morale and health. Studies consistently show that workers in clean, well-organised offices perform better, report higher job satisfaction and take fewer sick days. Maintaining a clean workplace is not just about appearances — it is a strategic business decision that pays dividends in team performance and company culture."
+                  },
+                  {
+                    "heading": "Keep Your Workspace Organized",
+                    "text": "Clutter is the enemy of focus. When desks are piled with papers, cables are tangled and drawers are overflowing, it becomes much harder to think clearly and work efficiently. Encourage a clear desk policy where employees tidy their workstations at the end of each day."
+                  },
+                  {
+                    "heading": "Clean High-Touch Surfaces",
+                    "text": "Keyboards, mice, phone handsets, door handles, light switches and shared equipment are touched dozens of times every day. Disinfecting these surfaces regularly dramatically reduces the spread of illness in the workplace."
+                  }
+                ]
+              },
+              {
+                "id": "the-benefits-of-deep-cleaning-your-home",
+                "slug": "the-benefits-of-deep-cleaning-your-home",
+                "numericId": "3",
+                "title": "The Benefits of Deep Cleaning Your Home",
+                "description": "Explore why a comprehensive deep cleaning tackles hidden grime, eliminates stubborn allergens, and revitalizes your living space.",
+                "category": "Deep Cleaning",
+                "date": "September 10, 2026",
+                "shortDate": "Sep 10, 2026",
+                "day": "10",
+                "month": "SEP",
+                "author": "Admin",
+                "role": "Cleaning Expert",
+                "image": "/services/home-cleaning.webp",
+                "comments": 15,
+                "content": [
+                  {
+                    "heading": "What Is Deep Cleaning?",
+                    "text": "Deep cleaning is a comprehensive, intensive clean that goes far beyond the scope of a regular maintenance tidy. While day-to-day cleaning covers visible surfaces, a deep clean tackles the areas that accumulate grime over time — behind appliances, inside ovens, under furniture, grout lines and hidden corners of every room."
+                  },
+                  {
+                    "heading": "Improve Your Indoor Environment",
+                    "text": "A detailed cleaning routine removes accumulated dust, dirt, pollen and allergens from deep within carpets and upholstery, resulting in noticeably fresher and healthier indoor air for your whole family."
+                  },
+                  {
+                    "heading": "Eliminate Bacteria and Odours",
+                    "text": "Bathrooms and kitchens are particularly prone to bacterial build-up and persistent odours that regular cleaning cannot fully resolve. Professional deep cleaning uses specialist products to sanitise surfaces and leave your home genuinely fresh."
+                  }
+                ]
+              },
+              {
+                "id": "essential-kitchen-cleaning-checklist",
+                "slug": "essential-kitchen-cleaning-checklist",
+                "numericId": "4",
+                "title": "The Essential Kitchen Cleaning & Sanitization Checklist",
+                "description": "A thorough sanitization checklist covering cooking surfaces, range hoods, and food prep areas to ensure a spotless kitchen.",
+                "category": "Home Cleaning",
+                "date": "September 05, 2026",
+                "shortDate": "Sep 05, 2026",
+                "day": "05",
+                "month": "SEP",
+                "author": "Admin",
+                "role": "Cleaning Expert",
+                "image": "/services/kitchen-cleaning.webp",
+                "comments": 9,
+                "content": [
+                  {
+                    "heading": "Why Kitchen Cleanliness Comes First",
+                    "text": "The kitchen is the heart of every home, but it is also the area most susceptible to grease build-up, food residue, and bacterial contamination. A systematic sanitization routine safeguards your family's health and maintains your cooking appliances in peak condition."
+                  },
+                  {
+                    "heading": "Degreasing Cooking Surfaces and Range Hoods",
+                    "text": "Airborne grease quickly settles on stove backsplashes, range hoods, and cabinetry. Using eco-friendly degreasers and microfiber cloths prevents stubborn grime accumulation and keeps your kitchen air fresh."
+                  },
+                  {
+                    "heading": "Sanitizing Countertops and Sinks",
+                    "text": "Food prep surfaces require daily sanitization to eliminate cross-contamination risks. Stainless steel and granite surfaces benefit from pH-neutral cleaners that restore shine without dulling protective sealants."
+                  }
+                ]
+              },
+              {
+                "id": "how-to-keep-carpets-fresh-and-stain-free",
+                "slug": "how-to-keep-carpets-fresh-and-stain-free",
+                "numericId": "5",
+                "title": "How to Keep Carpets Fresh and Stain-Free Year Round",
+                "description": "Expert methods to remove stubborn carpet stains, neutralize deep-seated odors, and maintain fiber softness year-round.",
+                "category": "Cleaning Tips",
+                "date": "August 28, 2026",
+                "shortDate": "Aug 28, 2026",
+                "day": "28",
+                "month": "AUG",
+                "author": "Admin",
+                "role": "Cleaning Expert",
+                "image": "/services/carpet-cleaning.webp",
+                "comments": 14,
+                "content": [
+                  {
+                    "heading": "Understanding Carpet Fiber Care",
+                    "text": "Carpets endure continuous foot traffic, pet dander, and accidental spills. Proper vacuuming combined with routine deep-steam cleaning lifts embedded grit that could otherwise wear down delicate carpet fibers."
+                  },
+                  {
+                    "heading": "Immediate Spill Response Techniques",
+                    "text": "Whenever spills happen, blotting rather than vigorous rubbing is essential. Rubbing drives liquids deeper into carpet padding, while gentle blotting with a clean cloth extracts stains effectively."
+                  },
+                  {
+                    "heading": "Neutralizing Stubborn Odors",
+                    "text": "Natural baking soda treatments and enzymatic deodorizers eliminate stubborn pet and humidity smells at the root, leaving your living room smelling crisp and inviting."
+                  }
+                ]
+              },
+              {
+                "id": "mastering-bathroom-hygiene-and-tile-care",
+                "slug": "mastering-bathroom-hygiene-and-tile-care",
+                "numericId": "6",
+                "title": "Mastering Bathroom Hygiene: Expert Tips for Tile & Grout",
+                "description": "Professional advice on eradicating hard water deposits, sanitizing tile grout, and preventing mold build-up in high-humidity areas.",
+                "category": "Deep Cleaning",
+                "date": "August 20, 2026",
+                "shortDate": "Aug 20, 2026",
+                "day": "20",
+                "month": "AUG",
+                "author": "Admin",
+                "role": "Cleaning Expert",
+                "image": "/services/bathroom-cleaning.webp",
+                "comments": 11,
+                "content": [
+                  {
+                    "heading": "Combating Soap Scum and Hard Water Minerals",
+                    "text": "High humidity and mineral-rich water create stubborn calcium deposits on shower screens and tile grout. Routine squeegeeing and non-abrasive descalers prevent mineral etching and restore crystal clarity."
+                  },
+                  {
+                    "heading": "Grout Deep Cleaning and Sealing",
+                    "text": "Grout is naturally porous and traps moisture over time. Professional deep extraction and silicone sealing shield grout lines from discoloration, mold spores, and structural deterioration."
+                  },
+                  {
+                    "heading": "Proper Ventilation Habits",
+                    "text": "Running exhaust fans for at least twenty minutes post-shower evacuates residual humidity, actively deterring mildew growth and preserving paint finishes."
+                  }
+                ]
+              },
+              {
+                "id": "eco-friendly-cleaning-practices-for-healthy-homes",
+                "slug": "eco-friendly-cleaning-practices-for-healthy-homes",
+                "numericId": "7",
+                "title": "Eco-Friendly Cleaning: Green Solutions for a Healthy Home",
+                "description": "Switch to sustainable plant-based cleaners and natural disinfectants for a healthier home environment without harmful chemicals.",
+                "category": "Cleaning Tips",
+                "date": "August 12, 2026",
+                "shortDate": "Aug 12, 2026",
+                "day": "12",
+                "month": "AUG",
+                "author": "Admin",
+                "role": "Green Cleaning Expert",
+                "image": "/services/deep-cleaning.webp",
+                "comments": 7,
+                "content": [
+                  {
+                    "heading": "The Power of Plant-Based Cleaning Agents",
+                    "text": "Traditional household chemical cleaners often contain volatile organic compounds (VOCs) that irritate respiratory tracts and degrade indoor air quality. Switching to biodegradable, enzyme-based solutions cleans effectively without leaving harmful residues on dining tables or floors where children and pets play."
+                  },
+                  {
+                    "heading": "Reducing Water and Plastic Waste",
+                    "text": "Sustainable cleaning isn't just about ingredients; it's also about methodology. Microfiber technology captures 99% of bacteria using minimal water, while refillable concentrate bottles eliminate single-use plastics from landfills."
+                  },
+                  {
+                    "heading": "Natural Disinfectants That Actually Work",
+                    "text": "Distilled white vinegar, hydrogen peroxide, and essential oils like tea tree and eucalyptus provide natural antibacterial and antifungal properties that sanitize high-touch zones safely."
+                  }
+                ]
+              },
+              {
+                "id": "post-construction-cleaning-checklist",
+                "slug": "post-construction-cleaning-checklist",
+                "numericId": "8",
+                "title": "The Ultimate Post-Construction Cleaning & Dust Removal Guide",
+                "description": "Step-by-step guidance on capturing fine drywall dust, safely removing paint overspray, and preparing new renovations for move-in.",
+                "category": "Deep Cleaning",
+                "date": "August 05, 2026",
+                "shortDate": "Aug 05, 2026",
+                "day": "05",
+                "month": "AUG",
+                "author": "Admin",
+                "role": "Facility Supervisor",
+                "image": "/services/commercial-cleaning.webp",
+                "comments": 10,
+                "content": [
+                  {
+                    "heading": "Capturing Airborne Drywall Particulates",
+                    "text": "Remodeling and new construction leave microscopic silica and drywall dust that settles on every conceivable surface. Standard vacuums recirculate this dust back into the air; industrial HEPA filtration vacuums are essential for genuine particulate capture."
+                  },
+                  {
+                    "heading": "Protecting Fresh Finishes and Hardwood",
+                    "text": "Grout haze on freshly laid tile, paint overspray on window glass, and adhesive residue on new cabinetry require specialized, non-abrasive scrapers and neutral pH solutions to avoid surface scratching."
+                  },
+                  {
+                    "heading": "Multi-Stage Detailing Before Move-In",
+                    "text": "Post-construction cleaning requires a rough clean for large debris, a deep scrub of surfaces and HVAC vents, and a final touch-up polish just before furniture installation."
+                  }
+                ]
+              },
+              {
+                "id": "seasonal-spring-cleaning-checklist-for-every-room",
+                "slug": "seasonal-spring-cleaning-checklist-for-every-room",
+                "numericId": "9",
+                "title": "Seasonal Spring Cleaning: Resetting Your Home Room by Room",
+                "description": "A room-by-room spring cleaning routine to declutter, refresh upholstery, and bring renewed energy into your home.",
+                "category": "Home Cleaning",
+                "date": "July 28, 2026",
+                "shortDate": "Jul 28, 2026",
+                "day": "28",
+                "month": "JUL",
+                "author": "Admin",
+                "role": "Home Organizer",
+                "image": "/services/window-cleaning.webp",
+                "comments": 16,
+                "content": [
+                  {
+                    "heading": "Decluttering Before Deep Scrubbing",
+                    "text": "The secret to an effortless seasonal reset is clearing horizontal surfaces first. Donate unused items, organize storage bins, and create open space so vacuuming and wiping can proceed without obstacles."
+                  },
+                  {
+                    "heading": "Refreshing Mattress & Upholstery Deep Fibers",
+                    "text": "Spring is the ideal time to flip mattresses, steam clean fabric sofas, and launder heavy winter drapes to eliminate trapped dust mites before seasonal allergies peak."
+                  },
+                  {
+                    "heading": "Window Glass & Screen Rejuvenation",
+                    "text": "Washing screens and wiping interior window tracks allows fresh spring breezes to circulate through your home without blowing trapped dust back into living areas."
+                  }
+                ]
+              }
+            ],
+            "sidebar": {
+              "categories": [
+                {
+                  "name": "Cleaning Tips",
+                  "count": "8"
+                },
+                {
+                  "name": "Office Cleaning",
+                  "count": "5"
+                },
+                {
+                  "name": "Home Cleaning",
+                  "count": "6"
+                },
+                {
+                  "name": "Deep Cleaning",
+                  "count": "4"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Contact": {
+        "variants": {
+          "CleaningContact1": {
+            "badge": "Get In Touch",
+            "heading": "Our Contact",
+            "headingHighlight": "Information",
+            "description": "We would love to hear from you! Whether you have a question, need a quote, or want to schedule a cleaning service, our team is here to help.",
+            "items": [
+              {
+                "icon": "MapPin",
+                "title": "Our Location",
+                "lines": [
+                  "Awel Kiett-turner 495 Boulevard, Ste 10 Elmwood Park, NJ 07407, USA"
+                ]
+              },
+              {
+                "icon": "Phone",
+                "title": "Phone Number",
+                "lines": [
+                  "(+1 0000000000)",
+                  "(+1 0000000000)"
+                ]
+              },
+              {
+                "icon": "Mail",
+                "title": "Email us at",
+                "lines": [
+                  "info@xyz.com",
+                  "info@xyz.com"
+                ]
+              }
+            ],
+            "form": {
+              "badge": "Send us a Message",
+              "headingLine1": "We’re Here",
+              "headingLine2": "to Help!",
+              "description": "Fill out the form and our team will get back to you as soon as possible.",
+              "fields": [
+                {
+                  "name": "name",
+                  "type": "text",
+                  "placeholder": "Your Name",
+                  "icon": "User",
+                  "required": true
+                },
+                {
+                  "name": "phone",
+                  "type": "tel",
+                  "placeholder": "Phone Number",
+                  "icon": "Phone",
+                  "required": true
+                },
+                {
+                  "name": "email",
+                  "type": "email",
+                  "placeholder": "Your Email",
+                  "icon": "Mail",
+                  "required": true
+                },
+                {
+                  "name": "subject",
+                  "type": "text",
+                  "placeholder": "Subject",
+                  "icon": "MessageSquare",
+                  "required": true
+                }
+              ],
+              "message": {
+                "name": "message",
+                "placeholder": "Your Message",
+                "icon": "MessageSquare",
+                "rows": 4,
+                "required": true
+              },
+              "submitButton": {
+                "label": "Submit Now",
+                "submittingLabel": "Sending...",
+                "icon": "ArrowRight"
+              },
+              "privacyNote": {
+                "icon": "LockKeyhole",
+                "text": "Your information is safe with us. We respect your privacy."
+              },
+              "popCard": {
+                "icon": "CheckCircle2",
+                "closeIcon": "X",
+                "title": "Message Sent Successfully!",
+                "thankYouPrefix": "Thank you, ",
+                "thankYouSuffix": "! We have received your message.",
+                "defaultMessage": "Thank you! We have received your message.",
+                "followUp": "Our PureShine team will review your inquiry and get back to you shortly.",
+                "buttonText": "Okay, Got It!",
+                "closeAriaLabel": "Close"
+              },
+              "sidebar": {
+                "image": "/why-chooseUs.webp",
+                "imageAlt": "Professional cleaning service",
+                "assistance": {
+                  "icon": "Headphones",
+                  "title": "Need Immediate Assistance?",
+                  "subtitle": "Call us now: (+1 0000000000)",
+                  "phone": "(+1 0000000000)",
+                  "phoneHref": "tel:+10000000000"
+                }
+              }
+            },
+            "map": {
+              "title": "PureShine Location",
+              "src": "https://www.google.com/maps?q=Awel+Kiett-turner+495+Boulevard,+Ste+10+Elmwood+Park,+NJ+07407,+USA&output=embed",
+              "locationTitle": "Awel Kiett-turner",
+              "locationSubtitle": "495 Boulevard, Ste 10 Elmwood Park, NJ 07407, USA",
+              "viewLargerMapText": "View larger map",
+              "viewLargerMapHref": "https://www.google.com/maps?q=Awel+Kiett-turner+495+Boulevard,+Ste+10+Elmwood+Park,+NJ+07407,+USA",
+              "zoomIn": "+",
+              "zoomOut": "−"
+            },
+            "contactMap": {
+              "title": "PureShine Location",
+              "src": "https://www.google.com/maps?q=Awel+Kiett-turner+495+Boulevard,+Ste+10+Elmwood+Park,+NJ+07407,+USA&output=embed",
+              "locationTitle": "Awel Kiett-turner",
+              "locationSubtitle": "495 Boulevard, Ste 10 Elmwood Park, NJ 07407, USA",
+              "viewLargerMapText": "View larger map",
+              "viewLargerMapHref": "https://www.google.com/maps?q=Awel+Kiett-turner+495+Boulevard,+Ste+10+Elmwood+Park,+NJ+07407,+USA",
+              "zoomIn": "+",
+              "zoomOut": "−"
+            },
+            "hero": {
+              "title": "Contact Us",
+              "breadcrumb": "Contact Us",
+              "backgroundImage": "/about-hero.webp"
+            }
+          }
+        }
+      },
+      "Footer": {
+        "variants": {
+          "CleaningFooter1": {
+            "logo": "/footer-logo.webp",
+            "logoAlt": "PureShine",
+            "logoHref": "/",
+            "description": "We provide professional, reliable, and eco-friendly cleaning services for homes, offices, and commercial spaces. Your cleanliness is our priority.",
+            "quickLinksTitle": "Quick Links",
+            "servicesTitle": "Our Services",
+            "contactTitle": "Contact Information",
+            "copyright": "©2026 All Rights Reserved. Powered by Lestow",
+            "contact": {
+              "phone": "+1 0000000000",
+              "phoneHref": "tel:+10000000000",
+              "phoneHours": "Mon – Sat, 9:00 AM – 7:00 PM",
+              "email": "info@xyz.com",
+              "emailHref": "mailto:info@xyz.com",
+              "emailNote": "We reply within 24 hours",
+              "address": "Awel Kiett-turner 495 Boulevard, Ste 10 Elmwood Park, NJ 07407, USA"
+            },
+            "newsletter": {
+              "title": "Newsletter",
+              "description": "Subscribe to our newsletter for updates, tips and special offers.",
+              "placeholder": "Enter your email address",
+              "submitLabel": "Subscribe"
+            },
+            "quickLinks": [
+              {
+                "name": "Home",
+                "href": "/"
+              },
+              {
+                "name": "About Us",
+                "href": "/about"
+              },
+              {
+                "name": "Our Services",
+                "href": "/services"
+              },
+              {
+                "name": "Gallery",
+                "href": "/gallery"
+              },
+              {
+                "name": "FAQ",
+                "href": "/faq"
+              },
+              {
+                "name": "Contact Us",
+                "href": "/contact"
+              }
+            ],
+            "serviceLinks": [
+              {
+                "name": "Home Cleaning",
+                "href": "/serviceDetail/home-cleaning"
+              },
+              {
+                "name": "Office Cleaning",
+                "href": "/serviceDetail/office-cleaning"
+              },
+              {
+                "name": "Kitchen Cleaning",
+                "href": "/serviceDetail/kitchen-cleaning"
+              },
+              {
+                "name": "Bathroom Cleaning",
+                "href": "/serviceDetail/bathroom-cleaning"
+              },
+              {
+                "name": "Carpet & Sofa Cleaning",
+                "href": "/serviceDetail/carpet-sofa-cleaning"
+              },
+              {
+                "name": "Window Cleaning",
+                "href": "/serviceDetail/window-cleaning"
+              }
+            ],
+            "socialLinks": [
+              {
+                "label": "Facebook",
+                "href": "https://www.facebook.com"
+              },
+              {
+                "label": "Instagram",
+                "href": "https://www.instagram.com"
+              },
+              {
+                "label": "X",
+                "href": "https://www.x.com"
+              },
+              {
+                "label": "LinkedIn",
+                "href": "https://www.linkedin.com"
+              },
+              {
+                "label": "YouTube",
+                "href": "https://www.youtube.com"
+              }
+            ],
+            "trustBadges": [
+              {
+                "icon": "Leaf",
+                "title": "Eco-Friendly",
+                "subtitle": "Products"
+              },
+              {
+                "icon": "Award",
+                "title": "Trusted",
+                "subtitle": "Professionals"
+              },
+              {
+                "icon": "ShieldCheck",
+                "title": "Satisfaction",
+                "subtitle": "Guaranteed"
+              },
+              {
+                "icon": "Clock3",
+                "title": "On-Time",
+                "subtitle": "Service"
+              }
+            ],
+            "paymentMethods": [
+              {
+                "id": "visa",
+                "label": "VISA"
+              },
+              {
+                "id": "mastercard",
+                "label": "Mastercard"
+              },
+              {
+                "id": "paytm",
+                "label": "Paytm"
+              },
+              {
+                "id": "upi",
+                "label": "UPI"
+              }
+            ],
+            "legalLinks": [
+              {
+                "name": "Privacy Policy",
+                "href": "/privacy-policy"
+              },
+              {
+                "name": "Terms & Conditions",
+                "href": "/terms"
+              },
+              {
+                "name": "Sitemap",
+                "href": "/sitemap"
+              }
+            ]
+          }
+        }
+      },
+      "Gallery": {
+        "variants": {
+          "CleaningGallery1": {
+            "badge": "Our Gallery",
+            "headingLine1": "Our Cleaning",
+            "headingLine2": "Work Gallery",
+            "description": "Take a look at some of our recent cleaning work. We deliver spotless, fresh and healthier spaces for homes, offices and commercial properties.",
+            "itemsPerPage": 9,
+            "categories": [
+              "All Photos",
+              "Home Cleaning",
+              "Office Cleaning",
+              "Deep Cleaning",
+              "Kitchen Cleaning",
+              "Bathroom Cleaning",
+              "Carpet & Upholstery",
+              "Before & After"
+            ],
+            "hero": {
+              "title": "Our Gallery",
+              "breadcrumb": "Our Gallery",
+              "backgroundImage": "/about-hero.webp"
+            },
+            "items": [
+              {
+                "id": 1,
+                "type": "photo",
+                "category": "Home Cleaning",
+                "title": "Clean and organized living room",
+                "image": "/gallery/home-cleanings.webp"
+              },
+              {
+                "id": 2,
+                "type": "photo",
+                "category": "Kitchen Cleaning",
+                "title": "Professional kitchen cleaning",
+                "image": "/gallery/kitchen-cleaning.webp"
+              },
+              {
+                "id": 3,
+                "type": "photo",
+                "category": "Carpet & Upholstery",
+                "title": "Professional carpet cleaning",
+                "image": "/services/carpet-cleaning.webp"
+              },
+              {
+                "id": 4,
+                "type": "photo",
+                "category": "Home Cleaning",
+                "title": "Bedroom cleaning service",
+                "image": "/aboutCleaning.webp"
+              },
+              {
+                "id": 5,
+                "type": "photo",
+                "category": "Bathroom Cleaning",
+                "title": "Bathroom deep cleaning",
+                "image": "/services/bathroom-cleaning.webp"
+              },
+              {
+                "id": 6,
+                "type": "photo",
+                "category": "Office Cleaning",
+                "title": "Professional window cleaning",
+                "image": "/services/office-cleaning.webp"
+              },
+              {
+                "id": 7,
+                "type": "photo",
+                "category": "Kitchen Cleaning",
+                "title": "Kitchen surface cleaning",
+                "image": "/services/kitchen-cleaning.webp"
+              },
+              {
+                "id": 8,
+                "type": "photo",
+                "category": "Deep Cleaning",
+                "title": "Floor deep cleaning",
+                "image": "/why-chooseUs.webp"
+              },
+              {
+                "id": 9,
+                "type": "photo",
+                "category": "Carpet & Upholstery",
+                "title": "Sofa cleaning service",
+                "image": "/services/carpet-cleaning.webp"
+              },
+              {
+                "id": 10,
+                "type": "photo",
+                "category": "Home Cleaning",
+                "title": "Living room cleaning",
+                "image": "/about-hero.webp"
+              },
+              {
+                "id": 11,
+                "type": "photo",
+                "category": "Office Cleaning",
+                "title": "Office workspace cleaning",
+                "image": "/services/office-cleaning.webp"
+              },
+              {
+                "id": 12,
+                "type": "photo",
+                "category": "Deep Cleaning",
+                "title": "Deep floor cleaning",
+                "image": "/services/home-cleaning.webp"
+              },
+              {
+                "id": 13,
+                "type": "photo",
+                "category": "Bathroom Cleaning",
+                "title": "Bathroom surface cleaning",
+                "image": "/services/bathroom-cleaning.webp"
+              },
+              {
+                "id": 14,
+                "type": "photo",
+                "category": "Carpet & Upholstery",
+                "title": "Upholstery cleaning",
+                "image": "/services/carpet-cleaning.webp"
+              },
+              {
+                "id": 15,
+                "type": "photo",
+                "category": "Kitchen Cleaning",
+                "title": "Kitchen appliance cleaning",
+                "image": "/services/kitchen-cleaning.webp"
+              },
+              {
+                "id": 16,
+                "type": "photo",
+                "category": "Home Cleaning",
+                "title": "Home floor cleaning",
+                "image": "/aboutCleaning.webp"
+              },
+              {
+                "id": 17,
+                "type": "photo",
+                "category": "Office Cleaning",
+                "title": "Office floor cleaning",
+                "image": "/services/office-cleaning.webp"
+              },
+              {
+                "id": 18,
+                "type": "photo",
+                "category": "Before & After",
+                "title": "Cleaning transformation",
+                "image": "/why-chooseUs.webp"
+              },
+              {
+                "id": 19,
+                "type": "video",
+                "category": "Home Cleaning",
+                "title": "Home cleaning process",
+                "image": "/services/home-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 20,
+                "type": "video",
+                "category": "Deep Cleaning",
+                "title": "Deep cleaning process",
+                "image": "/why-chooseUs.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 21,
+                "type": "video",
+                "category": "Kitchen Cleaning",
+                "title": "Kitchen cleaning process",
+                "image": "/services/kitchen-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 22,
+                "type": "video",
+                "category": "Bathroom Cleaning",
+                "title": "Bathroom cleaning process",
+                "image": "/services/bathroom-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 23,
+                "type": "video",
+                "category": "Office Cleaning",
+                "title": "Office cleaning process",
+                "image": "/services/office-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 24,
+                "type": "video",
+                "category": "Carpet & Upholstery",
+                "title": "Carpet & upholstery cleaning process",
+                "image": "/services/carpet-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 25,
+                "type": "video",
+                "category": "Deep Cleaning",
+                "title": "Sanitization and disinfection process",
+                "image": "/why-chooseUs.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 26,
+                "type": "video",
+                "category": "Home Cleaning",
+                "title": "Eco-friendly living space care",
+                "image": "/services/home-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 27,
+                "type": "video",
+                "category": "Office Cleaning",
+                "title": "Corporate workspace detailing",
+                "image": "/services/office-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 28,
+                "type": "video",
+                "category": "Kitchen Cleaning",
+                "title": "Appliance and stovetop deep scrub",
+                "image": "/services/kitchen-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 29,
+                "type": "video",
+                "category": "Bathroom Cleaning",
+                "title": "Tile and shower grout revitalization",
+                "image": "/services/bathroom-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 30,
+                "type": "video",
+                "category": "Carpet & Upholstery",
+                "title": "Steam extraction and stain removal",
+                "image": "/services/carpet-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 31,
+                "type": "photo",
+                "category": "Deep Cleaning",
+                "title": "Comprehensive room deep sanitation",
+                "image": "/why-chooseUs.webp"
+              },
+              {
+                "id": 32,
+                "type": "photo",
+                "category": "Deep Cleaning",
+                "title": "Detailed surface scrubbing",
+                "image": "/about-hero.webp"
+              },
+              {
+                "id": 33,
+                "type": "photo",
+                "category": "Bathroom Cleaning",
+                "title": "Sparkling porcelain and tile finish",
+                "image": "/services/bathroom-cleaning.webp"
+              },
+              {
+                "id": 34,
+                "type": "photo",
+                "category": "Bathroom Cleaning",
+                "title": "Mirror and glass polishing",
+                "image": "/services/bathroom-cleaning.webp"
+              },
+              {
+                "id": 35,
+                "type": "photo",
+                "category": "Before & After",
+                "title": "Kitchen deep clean before and after",
+                "image": "/services/kitchen-cleaning.webp"
+              },
+              {
+                "id": 36,
+                "type": "photo",
+                "category": "Before & After",
+                "title": "Tile floor shine before and after",
+                "image": "/why-chooseUs.webp"
+              },
+              {
+                "id": 37,
+                "type": "photo",
+                "category": "Before & After",
+                "title": "Living space revival before and after",
+                "image": "/services/home-cleaning.webp"
+              },
+              {
+                "id": 38,
+                "type": "photo",
+                "category": "Kitchen Cleaning",
+                "title": "Countertop and stove degreasing",
+                "image": "/services/kitchen-cleaning.webp"
+              },
+              {
+                "id": 39,
+                "type": "photo",
+                "category": "Office Cleaning",
+                "title": "Conference room hygienic tidying",
+                "image": "/services/office-cleaning.webp"
+              },
+              {
+                "id": 40,
+                "type": "photo",
+                "category": "Carpet & Upholstery",
+                "title": "Deep fabric wash and vacuuming",
+                "image": "/services/carpet-cleaning.webp"
+              },
+              {
+                "id": 41,
+                "type": "photo",
+                "category": "Home Cleaning",
+                "title": "Fresh bedroom dusting and arrangement",
+                "image": "/services/home-cleaning.webp"
+              },
+              {
+                "id": 42,
+                "type": "video",
+                "category": "Before & After",
+                "title": "Transformation reveal walkthrough",
+                "image": "/why-chooseUs.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 43,
+                "type": "video",
+                "category": "Before & After",
+                "title": "Full house cleanup comparison",
+                "image": "/about-hero.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 44,
+                "type": "video",
+                "category": "Home Cleaning",
+                "title": "Living room step-by-step clean",
+                "image": "/services/home-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 45,
+                "type": "video",
+                "category": "Office Cleaning",
+                "title": "Commercial cubicle sanitized sweep",
+                "image": "/services/office-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 46,
+                "type": "video",
+                "category": "Deep Cleaning",
+                "title": "Heavy grime removal and steam treatment",
+                "image": "/why-chooseUs.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 47,
+                "type": "video",
+                "category": "Kitchen Cleaning",
+                "title": "Cabinet and exhaust fan degreasing",
+                "image": "/services/kitchen-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 48,
+                "type": "video",
+                "category": "Bathroom Cleaning",
+                "title": "Sanitary wash and glass restoration",
+                "image": "/services/bathroom-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 49,
+                "type": "video",
+                "category": "Carpet & Upholstery",
+                "title": "Deep pile shampoo and dry extract",
+                "image": "/services/carpet-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 50,
+                "type": "video",
+                "category": "Before & After",
+                "title": "Property renewal final inspection",
+                "image": "/services/home-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 51,
+                "type": "photo",
+                "category": "Home Cleaning",
+                "title": "Spotless master suite sanctuary",
+                "image": "/services/home-cleaning.webp"
+              },
+              {
+                "id": 52,
+                "type": "photo",
+                "category": "Kitchen Cleaning",
+                "title": "Pantry organization and sanitation",
+                "image": "/services/kitchen-cleaning.webp"
+              },
+              {
+                "id": 53,
+                "type": "photo",
+                "category": "Kitchen Cleaning",
+                "title": "Sink and backsplash detailing",
+                "image": "/services/kitchen-cleaning.webp"
+              },
+              {
+                "id": 54,
+                "type": "photo",
+                "category": "Carpet & Upholstery",
+                "title": "Pet stain removal treatment",
+                "image": "/services/carpet-cleaning.webp"
+              },
+              {
+                "id": 55,
+                "type": "photo",
+                "category": "Carpet & Upholstery",
+                "title": "Wool rug gentle washing",
+                "image": "/services/carpet-cleaning.webp"
+              },
+              {
+                "id": 56,
+                "type": "photo",
+                "category": "Bathroom Cleaning",
+                "title": "Walk-in shower tile restoration",
+                "image": "/services/bathroom-cleaning.webp"
+              },
+              {
+                "id": 57,
+                "type": "photo",
+                "category": "Bathroom Cleaning",
+                "title": "Faucet and chrome de-scaling",
+                "image": "/services/bathroom-cleaning.webp"
+              },
+              {
+                "id": 58,
+                "type": "photo",
+                "category": "Office Cleaning",
+                "title": "Reception lobby floor buffing",
+                "image": "/services/office-cleaning.webp"
+              },
+              {
+                "id": 59,
+                "type": "photo",
+                "category": "Office Cleaning",
+                "title": "Breakroom sanitization service",
+                "image": "/services/office-cleaning.webp"
+              },
+              {
+                "id": 60,
+                "type": "photo",
+                "category": "Deep Cleaning",
+                "title": "Baseboard and trim wiping",
+                "image": "/why-chooseUs.webp"
+              },
+              {
+                "id": 61,
+                "type": "photo",
+                "category": "Deep Cleaning",
+                "title": "Behind-appliance deep vacuuming",
+                "image": "/about-hero.webp"
+              },
+              {
+                "id": 62,
+                "type": "photo",
+                "category": "Before & After",
+                "title": "Basement cleanup before and after",
+                "image": "/services/home-cleaning.webp"
+              },
+              {
+                "id": 63,
+                "type": "photo",
+                "category": "Before & After",
+                "title": "Wood floor polish transformation",
+                "image": "/why-chooseUs.webp"
+              },
+              {
+                "id": 64,
+                "type": "video",
+                "category": "Home Cleaning",
+                "title": "Family room dusting routine",
+                "image": "/services/home-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 65,
+                "type": "video",
+                "category": "Home Cleaning",
+                "title": "Staircase vacuuming technique",
+                "image": "/services/home-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 66,
+                "type": "video",
+                "category": "Kitchen Cleaning",
+                "title": "Oven interior deep cleaning",
+                "image": "/services/kitchen-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 67,
+                "type": "video",
+                "category": "Kitchen Cleaning",
+                "title": "Sink basin stain scrubbing",
+                "image": "/services/kitchen-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 68,
+                "type": "video",
+                "category": "Deep Cleaning",
+                "title": "Air vent and radiator dusting",
+                "image": "/why-chooseUs.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 69,
+                "type": "video",
+                "category": "Deep Cleaning",
+                "title": "High-touch surface disinfection",
+                "image": "/about-hero.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 70,
+                "type": "video",
+                "category": "Bathroom Cleaning",
+                "title": "Shower glass limescale removal",
+                "image": "/services/bathroom-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 71,
+                "type": "video",
+                "category": "Bathroom Cleaning",
+                "title": "Grout steam cleaning demonstration",
+                "image": "/services/bathroom-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 72,
+                "type": "video",
+                "category": "Office Cleaning",
+                "title": "Workstation sanitizing protocol",
+                "image": "/services/office-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 73,
+                "type": "video",
+                "category": "Office Cleaning",
+                "title": "Office carpet extraction clean",
+                "image": "/services/office-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 74,
+                "type": "video",
+                "category": "Carpet & Upholstery",
+                "title": "Heavy traffic hallway shampooing",
+                "image": "/services/carpet-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 75,
+                "type": "video",
+                "category": "Carpet & Upholstery",
+                "title": "Velvet armchair fabric refresh",
+                "image": "/services/carpet-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 76,
+                "type": "video",
+                "category": "Before & After",
+                "title": "Kitchen transformation walkthrough",
+                "image": "/services/kitchen-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              },
+              {
+                "id": 77,
+                "type": "video",
+                "category": "Before & After",
+                "title": "Office restoration before and after",
+                "image": "/services/office-cleaning.webp",
+                "videoUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
