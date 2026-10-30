@@ -106,18 +106,18 @@
                 "href": "#about"
               },
               {
-                "name": "Categories",
-                "href": "#categories"
+                "name": "Services",
+                "href": "#services"
               }
             ],
             "rightMenu": [
               {
-                "name": "Features",
-                "href": "#features"
+                "name": "Gallery",
+                "href": "#gallery"
               },
               {
-                "name": "Services",
-                "href": "#services"
+                "name": "Feature",
+                "href": "#features"
               },
               {
                 "name": "FAQ",
@@ -138,16 +138,16 @@
                 "href": "#about"
               },
               {
-                "name": "Categories",
-                "href": "#categories"
-              },
-              {
-                "name": "Features",
-                "href": "#features"
-              },
-              {
                 "name": "Services",
                 "href": "#services"
+              },
+              {
+                "name": "Gallery",
+                "href": "#gallery"
+              },
+              {
+                "name": "Feature",
+                "href": "#features"
               },
               {
                 "name": "FAQ",
@@ -1026,16 +1026,16 @@
                 "href": "#about"
               },
               {
-                "name": "Categories",
-                "href": "#categories"
-              },
-              {
-                "name": "Features",
-                "href": "#features"
-              },
-              {
-                "name": "Our Services",
+                "name": "Services",
                 "href": "#services"
+              },
+              {
+                "name": "Gallery",
+                "href": "#gallery"
+              },
+              {
+                "name": "Feature",
+                "href": "#features"
               },
               {
                 "name": "FAQ",

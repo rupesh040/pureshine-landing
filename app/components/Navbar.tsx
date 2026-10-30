@@ -57,22 +57,107 @@ export default function Navbar() {
   const visibleRightMenu = isLanding ? landingNavigation.slice(3) : rightMenu;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const isManualScrollingRef = useRef(false);
+  const manualScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (!isLanding || !href.startsWith("#")) return;
+
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    const rawTargetId = href.slice(1);
+    const targetId = rawTargetId === "feature" ? "features" : rawTargetId;
+    const targetElement =
+      document.getElementById(targetId) || document.getElementById(rawTargetId);
+
+    if (targetElement) {
+      setActiveSection(rawTargetId);
+      isManualScrollingRef.current = true;
+
+      if (manualScrollTimeoutRef.current) {
+        clearTimeout(manualScrollTimeoutRef.current);
+      }
+
+      targetElement.scrollIntoView({ behavior: "smooth" });
+      window.history.pushState(null, "", href);
+
+      manualScrollTimeoutRef.current = setTimeout(() => {
+        isManualScrollingRef.current = false;
+        setActiveSection(rawTargetId);
+      }, 850);
+    }
+  };
 
   useEffect(() => {
-    if (!isLanding || typeof IntersectionObserver === "undefined") return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
+    if (!isLanding) return;
+
+    const sectionIds = landingNavigation.map((item) => item.href.slice(1));
+
+    const updateActiveSection = () => {
+      if (isManualScrollingRef.current) return;
+
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      if (scrollY < 100) {
+        setActiveSection("home");
+        return;
+      }
+
+      if (windowHeight + scrollY >= documentHeight - 120) {
+        const lastSection = sectionIds[sectionIds.length - 1] || "contact";
+        setActiveSection(lastSection);
+        return;
+      }
+
+      const headerOffset = 180;
+      let matchedSection = "home";
+
+      for (const id of sectionIds) {
+        const targetId = id === "feature" ? "features" : id;
+        const el =
+          document.getElementById(targetId) || document.getElementById(id);
+        if (!el) continue;
+
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= headerOffset) {
+          matchedSection = id;
         }
-      },
-      { rootMargin: "-18% 0px -60% 0px", threshold: 0 },
-    );
-    for (const { href } of landingNavigation) {
-      const section = document.getElementById(href.slice(1));
-      if (section) observer.observe(section);
-    }
-    return () => observer.disconnect();
+      }
+
+      setActiveSection(matchedSection);
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveSection();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    updateActiveSection();
+    const timer = setTimeout(updateActiveSection, 150);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      if (manualScrollTimeoutRef.current) {
+        clearTimeout(manualScrollTimeoutRef.current);
+      }
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, [isLanding]);
 
   useEffect(() => {
@@ -116,7 +201,20 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   const isActive = (href: string) => {
-    if (isLanding) return href === `#${activeSection}`;
+    if (isLanding) {
+      const activeId = activeSection.startsWith("#")
+        ? activeSection.slice(1)
+        : activeSection;
+      const targetId = href.startsWith("#") ? href.slice(1) : href;
+      if (activeId === targetId) return true;
+      if (
+        (activeId === "features" || activeId === "feature") &&
+        (targetId === "features" || targetId === "feature")
+      ) {
+        return true;
+      }
+      return false;
+    }
     if (href === "/") {
       return pathname === "/";
     }
@@ -203,6 +301,7 @@ export default function Navbar() {
         >
           <Link
             href={isLanding ? "#home" : "/"}
+            onClick={(e) => handleNavClick(e, "#home")}
             className="
               relative z-10 flex h-full w-full items-center justify-center
             "
@@ -255,6 +354,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   aria-current={active ? (isLanding ? "location" : "page") : undefined}
                   className={`
                     group relative flex h-full items-center whitespace-nowrap
@@ -386,7 +486,7 @@ export default function Navbar() {
 
         <Link
           href={isLanding ? "#home" : "/"}
-          onClick={() => setMobileMenuOpen(false)}
+          onClick={(e) => handleNavClick(e, "#home")}
           className="
             absolute left-1/2 top-0 flex -translate-x-1/2
             items-center justify-center
@@ -440,7 +540,7 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   aria-current={active ? (isLanding ? "location" : "page") : undefined}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`
                     group relative flex items-center justify-between border-b border-gray-100 px-6 py-4
                     text-sm font-semibold transition-all duration-200
@@ -476,7 +576,7 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   aria-current={active ? (isLanding ? "location" : "page") : undefined}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`
                     group relative flex items-center justify-between border-b border-gray-100 px-6 py-4
                     text-sm font-semibold transition-all duration-200

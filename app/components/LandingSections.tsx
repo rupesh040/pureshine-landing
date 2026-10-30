@@ -40,9 +40,13 @@ export interface GalleryData {
 
 export interface CategoriesPreviewProps {
   data?: GalleryData;
+  id?: string;
 }
 
-export function CategoriesPreview({ data = content.gallery as GalleryData }: CategoriesPreviewProps = {}) {
+export function CategoriesPreview({
+  data = content.gallery as GalleryData,
+  id,
+}: CategoriesPreviewProps = {}) {
   const gallery = data;
   const photos = gallery.items.filter((item) => item.type === "photo");
   const categories = gallery.categories.filter(
@@ -122,10 +126,11 @@ export function CategoriesPreview({ data = content.gallery as GalleryData }: Cat
 
   return (
     <section
-      id="categories"
+      id={id}
       aria-labelledby="categories-heading"
       className="bg-[#f3faf5] px-4 py-6 sm:px-8"
     >
+      <span id="categories" className="sr-only" />
       <div className="mx-auto max-w-[1300px]">
         <div className="mx-auto max-w-[720px] text-center">
           <p className="text-xs font-bold uppercase tracking-[4px] text-[#128237]">
@@ -238,11 +243,13 @@ export function CategoriesPreview({ data = content.gallery as GalleryData }: Cat
 export interface EnquirySectionProps {
   contactData?: typeof content.contact;
   siteData?: typeof content.site;
+  id?: string;
 }
 
 export function EnquirySection({
   contactData = content.contact,
   siteData = content.site,
+  id,
 }: EnquirySectionProps = {}) {
   const { openEnquiry } = useEnquiry();
   const contact = contactData;
@@ -250,7 +257,7 @@ export function EnquirySection({
 
   return (
     <section
-      id="contact"
+      id={id}
       aria-labelledby="contact-heading"
       className="bg-[#f3faf5] px-5 py-6 sm:px-8"
     >
