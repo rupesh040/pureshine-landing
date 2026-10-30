@@ -12,10 +12,40 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html { scroll-behavior: smooth; }
+
+:where([id]) { scroll-margin-top: 150px; }
+
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid #168441;
+  outline-offset: 4px;
+}
+
+button { cursor: pointer; }
+button:disabled { cursor: wait; }
+
+.skip-link {
+  position: fixed;
+  z-index: 200;
+  top: 8px;
+  left: 8px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: #092a43;
+  color: white;
+  transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.landing-page { color-scheme: light; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
@@ -25,7 +55,6 @@ body {
   font-family: var(--font-lato), sans-serif;
 }
 
-/* Page Open & Hero Entrance Fade Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;

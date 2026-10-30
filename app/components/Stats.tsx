@@ -70,14 +70,14 @@ export default function Stats() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-white "
+      className="relative w-full overflow-hidden bg-white py-6"
     >
       <div className="pointer-events-none absolute -left-[90px] -top-[100px] h-[210px] w-[210px] rounded-full bg-[#f2f8f5] sm:-left-[70px] sm:h-[240px] sm:w-[240px]" />
       <div className="pointer-events-none absolute -right-[80px] -top-[110px] h-[200px] w-[200px] rounded-full bg-[#f1f8f4] sm:-right-[50px] sm:h-[240px] sm:w-[240px]" />
 
       <div
         style={{ animationDelay: "100ms" }}
-        className={`relative z-10 mx-auto w-[calc(100%-24px)]  overflow-hidden rounded-[18px] bg-[#effaf2] px-4 py-6 sm:w-[calc(100%-40px)] sm:px-6 sm:py-7 md:px-8 md:py-8 lg:w-[calc(100%-70px)] lg:px-8 lg:py-7 xl:px-12 ${
+        className={`relative z-10 mx-auto w-[calc(100%-24px)] overflow-hidden rounded-[18px] bg-[#effaf2] px-4 py-6 sm:w-[calc(100%-40px)] sm:px-6 md:px-8 lg:w-[calc(100%-70px)] lg:px-8 xl:px-12 ${
           isVisible ? "animate-fade-in-scale" : "opacity-0"
         }`}
       >

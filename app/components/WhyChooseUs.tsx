@@ -83,14 +83,14 @@ export default function WhyChooseUs() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-white py-0"
+      className="relative overflow-hidden bg-white py-6"
     >
       <div className="pointer-events-none absolute -left-10 top-10 h-28 w-28 rounded-full bg-[#f4faf7]" />
       <div className="pointer-events-none absolute left-[22%] top-[-45px] h-32 w-32 rounded-full bg-[#f7faf9]" />
 
       <div className="mx-auto">
         <div className="grid items-stretch gap-8 lg:grid-cols-[1fr_1.05fr] xl:gap-10">
-          <div className="relative flex flex-col justify-center px-12 lg:px-16 xl:px-20 py-4 sm:py-8 md:py-12 lg:py-16 xl:py-20">
+          <div className="relative flex flex-col justify-center px-12 lg:px-16 xl:px-20 py-6">
             <div className="relative mb-5">
               <Image
                 src={leafImage}

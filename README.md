@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PureShine - Cleaning Services Landing Page
+
+This is a modern Next.js landing page for **PureShine** cleaning services, bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) and built with Tailwind CSS.
 
 ## Getting Started
 

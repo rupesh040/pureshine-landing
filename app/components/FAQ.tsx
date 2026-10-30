@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "./LandingAction";
 import { usePathname } from "next/navigation";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import {
@@ -80,8 +80,8 @@ export default function FAQ({
     if (!el) return;
 
     if (typeof IntersectionObserver === "undefined") {
-      setIsVisible(true);
-      return;
+      const frame = requestAnimationFrame(() => setIsVisible(true));
+      return () => cancelAnimationFrame(frame);
     }
 
     const rect = el.getBoundingClientRect();
@@ -266,7 +266,7 @@ export default function FAQ({
 
             <Link
               href={contactCard.button.href}
-              className="group flex h-[50px] shrink-0 items-center justify-center gap-5 rounded-full bg-[#10ad3b] px-8 text-[14px] font-bold text-white transition hover:bg-[#07972f] sm:min-w-[185px]"
+              className="group flex h-[50px] shrink-0 items-center justify-center gap-5 rounded-full bg-[#11883e] px-8 text-[14px] font-bold text-white transition hover:bg-[#07972f] sm:min-w-[185px]"
             >
               <span>{contactCard.button.label}</span>
                <ArrowRight
@@ -301,6 +301,7 @@ function FAQItem({
   isVisible = true,
 }: FAQItemProps) {
   const Icon = faq.icon;
+  const answerId = useId();
 
   return (
     <div
@@ -313,6 +314,7 @@ function FAQItem({
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
+        aria-controls={answerId}
         className="flex w-full items-center gap-4 px-4 py-3 text-left sm:px-5 sm:py-4 cursor-pointer"
       >
         <span className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-[#e5f7e9] text-[#0aaa3a] sm:h-[58px] sm:w-[58px]">
@@ -331,6 +333,8 @@ function FAQItem({
       </button>
 
       <div
+        id={answerId}
+        aria-hidden={!isOpen}
         className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
           isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         }`}

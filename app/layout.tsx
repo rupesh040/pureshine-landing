@@ -4,6 +4,8 @@ import "./globals.css";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import EnquiryProvider from "./components/EnquiryProvider";
+import content from "./data";
 
 const lato = localFont({
   src: [
@@ -63,9 +65,8 @@ const lato = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "PureShine | Professional Cleaning Services",
-  description:
-    "PureShine provides reliable, affordable, and eco-friendly cleaning services for homes, offices, and commercial spaces.",
+  title: `${content.site.name} | ${content.site.tagline}`,
+  description: content.site.description,
 };
 
 export default function RootLayout({
@@ -83,9 +84,12 @@ export default function RootLayout({
         className={`${lato.className} min-h-full bg-white font-sans`}
         suppressHydrationWarning
       >
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <EnquiryProvider>
+          <a href="#main-content" className="skip-link">Skip to content</a>
+          <Navbar />
+          <main id="main-content" tabIndex={-1} className="flex-1">{children}</main>
+          <Footer />
+        </EnquiryProvider>
       </body>
     </html>
   );

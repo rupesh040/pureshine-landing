@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import content from "../data";
+import { useEnquiry } from "./EnquiryProvider";
+import ServiceDetailModal, { type ServiceItem } from "./ServiceDetailModal";
 
 import {
   ArrowRight,
@@ -34,7 +35,6 @@ const iconMap: Record<string, LucideIcon> = {
 
 interface ServicesProps {
   limit?: number;
-  showViewAll?: boolean;
   layout?: "slider" | "grid";
   itemsPerPage?: number;
   excludeId?: string;
@@ -42,12 +42,14 @@ interface ServicesProps {
 
 export default function Services({
   limit,
-  showViewAll,
   layout,
   itemsPerPage,
   excludeId,
 }: ServicesProps = {}) {
   const pathname = usePathname();
+  const { openEnquiry } = useEnquiry();
+  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+
   const isServicesPage = pathname === "/services";
   const effectiveLayout = layout ?? (isServicesPage ? "grid" : "slider");
   const {
@@ -56,18 +58,13 @@ export default function Services({
     headingHighlight,
     description,
     leafImage = "/leaf.png",
-    viewAllButton,
   } = content.servicesSection;
 
-  const allServices = content.services;
+  const allServices = pathname === "/"
+    ? content.services.filter((service, index, items) => items.findIndex((item) => item.id === service.id) === index)
+    : content.services;
 
-  const activeExcludeId =
-    excludeId ??
-    (pathname.startsWith("/services/")
-      ? pathname.replace("/services/", "").split("/")[0]
-      : pathname.startsWith("/serviceDetail/")
-      ? pathname.replace("/serviceDetail/", "").split("/")[0]
-      : undefined);
+  const activeExcludeId = excludeId;
 
   const availableServices = activeExcludeId
     ? allServices.filter((s) => s.id !== activeExcludeId)
@@ -78,7 +75,9 @@ export default function Services({
     (content.servicesSection as { itemsPerPage?: number }).itemsPerPage ??
     8;
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const pageKey = `${pathname}:${activeExcludeId ?? ""}`;
+  const [pagination, setPagination] = useState({ key: pageKey, page: 1 });
+  const currentPage = pagination.key === pageKey ? pagination.page : 1;
   const totalPages = Math.ceil(availableServices.length / pageSize);
 
   const cardLimit = limit !== undefined ? limit : 8;
@@ -88,24 +87,17 @@ export default function Services({
         currentPage * pageSize,
       )
     : availableServices.slice(0, cardLimit);
-  const shouldShowViewAll =
-    showViewAll !== undefined ? showViewAll : !isServicesPage;
 
   const sectionRef = useRef<HTMLElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [pathname, activeExcludeId]);
-
   const goToPage = (page: number) => {
     if (page < 1 || page > totalPages) return;
-    setCurrentPage(page);
+    setPagination({ key: pageKey, page });
     if (sectionRef.current) {
       sectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -116,8 +108,8 @@ export default function Services({
     if (!el) return;
 
     if (typeof IntersectionObserver === "undefined") {
-      setIsVisible(true);
-      return;
+      const frame = requestAnimationFrame(() => setIsVisible(true));
+      return () => cancelAnimationFrame(frame);
     }
 
     const rect = el.getBoundingClientRect();
@@ -146,7 +138,7 @@ export default function Services({
     };
   }, []);
 
-  const checkScroll = () => {
+  const checkScroll = useCallback(() => {
     const slider = sliderRef.current;
     if (!slider) return;
 
@@ -155,18 +147,20 @@ export default function Services({
 
     setCanScrollLeft(hasOverflow);
     setCanScrollRight(hasOverflow);
-  };
+  }, []);
 
   useEffect(() => {
-    setIsMounted(true);
     if (effectiveLayout === "slider") {
-      checkScroll();
+      const frame = requestAnimationFrame(checkScroll);
       window.addEventListener("resize", checkScroll);
-      return () => window.removeEventListener("resize", checkScroll);
+      return () => {
+        cancelAnimationFrame(frame);
+        window.removeEventListener("resize", checkScroll);
+      };
     }
-  }, [effectiveLayout, displayedServices.length]);
+  }, [effectiveLayout, displayedServices.length, checkScroll]);
 
-  const scrollServices = (direction: "left" | "right") => {
+  const scrollServices = useCallback((direction: "left" | "right") => {
     const slider = sliderRef.current;
     if (!slider) return;
 
@@ -191,262 +185,251 @@ export default function Services({
     }
 
     setTimeout(checkScroll, 400);
-  };
+  }, [checkScroll]);
 
   useEffect(() => {
-    if (effectiveLayout !== "slider" || isPaused) return;
+    if (effectiveLayout !== "slider" || isPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const interval = setInterval(() => {
       scrollServices("right");
     }, 3500);
 
     return () => clearInterval(interval);
-  }, [effectiveLayout, isPaused]);
+  }, [effectiveLayout, isPaused, scrollServices]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative overflow-hidden bg-white py-6"
-    >
-      <div className="pointer-events-none absolute -left-20 top-0 h-[180px] w-[180px] rounded-full bg-[#f4f8f9] sm:h-[230px] sm:w-[230px]" />
-      <div className="pointer-events-none absolute -right-16 top-[130px] h-[150px] w-[150px] rounded-full bg-[#f7fafb]" />
-      <div className="pointer-events-none absolute left-[52%] top-[100px] h-[100px] w-[100px] rounded-full bg-[#f6fafb]" />
+    <>
+      <section
+        ref={sectionRef}
+        className="relative overflow-hidden bg-white py-6"
+      >
+        <div className="pointer-events-none absolute -left-20 top-0 h-[180px] w-[180px] rounded-full bg-[#f4f8f9] sm:h-[230px] sm:w-[230px]" />
+        <div className="pointer-events-none absolute -right-16 top-[130px] h-[150px] w-[150px] rounded-full bg-[#f7fafb]" />
+        <div className="pointer-events-none absolute left-[52%] top-[100px] h-[100px] w-[100px] rounded-full bg-[#f6fafb]" />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1450px] px-5 sm:px-8 lg:px-12">
-        <div className="relative mx-auto max-w-[950px] text-center">
-          <Image
-            src={leafImage}
-            alt="leaf"
-            width={60}
-            height={60}
-            className={`pointer-events-none absolute left-0 top-1 h-auto w-[46px] rotate-[240deg] transition-all duration-700 sm:left-2 sm:top-2 sm:w-[58px] ${
-              isVisible ? "scale-100 opacity-100" : "scale-75 opacity-0"
-            }`}
-          />
+        <div className="relative z-10 mx-auto w-full max-w-[1450px] px-5 sm:px-8 lg:px-12">
+          <div className="relative mx-auto max-w-[950px] text-center">
+            <Image
+              src={leafImage}
+              alt="leaf"
+              width={60}
+              height={60}
+              className={`pointer-events-none absolute left-0 top-1 h-auto w-[46px] rotate-[240deg] transition-all duration-700 sm:left-2 sm:top-2 sm:w-[58px] ${
+                isVisible ? "scale-100 opacity-100" : "scale-75 opacity-0"
+              }`}
+            />
 
-          <p
-            style={{ animationDelay: "150ms" }}
-            className={`text-[12px] font-bold tracking-[4px] text-[#12aa3b] sm:text-[13px] sm:tracking-[5px] ${
-              isVisible ? "animate-fade-in-up" : "opacity-0"
-            }`}
-          >
-            {badge}
-          </p>
-
-          <h2
-            style={{ animationDelay: "280ms" }}
-            className={`mt-3 text-[34px] font-extrabold leading-tight tracking-tight text-[#062d4c] sm:text-[43px] lg:text-[48px] ${
-              isVisible ? "animate-fade-in-up" : "opacity-0"
-            }`}
-          >
-            {heading}{" "}
-            <span className="text-[#10aa3a]">{headingHighlight}</span>
-          </h2>
-
-          <p
-            style={{ animationDelay: "380ms" }}
-            className={`mx-auto mt-3 max-w-[700px] text-[13px] leading-6 text-[#607386] sm:text-[14px] ${
-              isVisible ? "animate-fade-in-up" : "opacity-0"
-            }`}
-          >
-            {description}
-          </p>
-
-          <Image
-           src={leafImage}
-            alt="leaf"
-            width={60}
-            height={60}
-            className="absolute right-0 top-0"
-          />
-        </div>
-
-        {effectiveLayout === "grid" ? (
-          <div className="mt-8 sm:mt-12 grid grid-cols-2 justify-items-center gap-3.5 sm:gap-7 lg:grid-cols-3 lg:gap-8 xl:grid-cols-4">
-            {displayedServices.map((service, idx) => {
-              const Icon = iconMap[service.icon] ?? Home;
-              return (
-                <ServiceCard
-                  key={`${service.id}-${idx}`}
-                  id={service.id}
-                  title={service.title}
-                  description={service.description}
-                  image={service.image}
-                  icon={Icon}
-                  darkIcon={service.darkIcon}
-                  isGrid={true}
-                  delay={450 + idx * 80}
-                  isVisible={isVisible}
-                />
-              );
-            })}
-          </div>
-        ) : (
-          <div
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onTouchStart={() => setIsPaused(true)}
-            onTouchEnd={() => setIsPaused(false)}
-            className="relative mt-8 sm:mt-12"
-          >
-            <button
-              type="button"
-              onClick={() => scrollServices("left")}
-              disabled={isMounted ? !canScrollLeft : false}
-              suppressHydrationWarning
-              aria-label="Previous services"
-              style={{ animationDelay: "450ms" }}
-              className={`absolute -left-3 top-1/2 z-30 flex h-[40px] w-[40px] sm:h-[52px] sm:w-[52px] -translate-y-1/2 items-center justify-center rounded-full border border-gray-100 bg-white text-[#10aa3a] shadow-[0_6px_25px_rgba(8,45,76,0.14)] transition-all duration-200 hover:bg-[#10aa3a] hover:text-white active:scale-95 disabled:pointer-events-none disabled:opacity-0 sm:-left-5 lg:-left-7 ${
-                isVisible ? "animate-fade-in-scale" : "opacity-0"
+            <p
+              style={{ animationDelay: "150ms" }}
+              className={`text-[12px] font-bold tracking-[4px] text-[#12aa3b] sm:text-[13px] sm:tracking-[5px] ${
+                isVisible ? "animate-fade-in-up" : "opacity-0"
               }`}
             >
-              <ChevronLeft size={22} strokeWidth={2.2} className="-ml-0.5 sm:h-[26px] sm:w-[26px]" />
-            </button>
+              {badge}
+            </p>
 
-            <div
-              ref={sliderRef}
-              onScroll={checkScroll}
-              className="flex snap-x snap-mandatory gap-3.5 sm:gap-6 overflow-x-auto scroll-smooth pb-6 pt-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            <h2
+              style={{ animationDelay: "280ms" }}
+              className={`mt-3 text-[34px] font-extrabold leading-tight tracking-tight text-[#062d4c] sm:text-[43px] lg:text-[48px] ${
+                isVisible ? "animate-fade-in-up" : "opacity-0"
+              }`}
             >
+              {heading}{" "}
+              <span className="text-[#10aa3a]">{headingHighlight}</span>
+            </h2>
+
+            <p
+              style={{ animationDelay: "380ms" }}
+              className={`mx-auto mt-3 max-w-[700px] text-[13px] leading-6 text-[#607386] sm:text-[14px] ${
+                isVisible ? "animate-fade-in-up" : "opacity-0"
+              }`}
+            >
+              {description}
+            </p>
+
+            <Image
+              src={leafImage}
+              alt="leaf"
+              width={60}
+              height={60}
+              className="absolute right-0 top-0"
+            />
+          </div>
+
+          {effectiveLayout === "grid" ? (
+            <div className="mt-8 sm:mt-12 grid grid-cols-1 min-[420px]:grid-cols-2 justify-items-center gap-5 sm:gap-7 lg:grid-cols-3 lg:gap-8 xl:grid-cols-4">
               {displayedServices.map((service, idx) => {
                 const Icon = iconMap[service.icon] ?? Home;
                 return (
                   <ServiceCard
                     key={`${service.id}-${idx}`}
-                    id={service.id}
-                    title={service.title}
-                    description={service.description}
-                    image={service.image}
+                    service={service}
                     icon={Icon}
-                    darkIcon={service.darkIcon}
+                    isGrid={true}
                     delay={450 + idx * 80}
                     isVisible={isVisible}
+                    onClick={() => setSelectedService(service)}
                   />
                 );
               })}
             </div>
+          ) : (
+            <div
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onTouchStart={() => setIsPaused(true)}
+              onTouchEnd={() => setIsPaused(false)}
+              className="relative mt-8 sm:mt-12"
+            >
+              <button
+                type="button"
+                onClick={() => scrollServices("left")}
+                disabled={!canScrollLeft}
+                suppressHydrationWarning
+                aria-label="Previous services"
+                style={{ animationDelay: "450ms" }}
+                className={`absolute -left-3 top-1/2 z-30 flex h-[40px] w-[40px] sm:h-[52px] sm:w-[52px] -translate-y-1/2 items-center justify-center rounded-full border border-gray-100 bg-white text-[#10aa3a] shadow-[0_6px_25px_rgba(8,45,76,0.14)] transition-all duration-200 hover:bg-[#10aa3a] hover:text-white active:scale-95 disabled:pointer-events-none disabled:opacity-0 sm:-left-5 lg:-left-7 ${
+                  isVisible ? "animate-fade-in-scale" : "opacity-0"
+                }`}
+              >
+                <ChevronLeft size={22} strokeWidth={2.2} className="-ml-0.5 sm:h-[26px] sm:w-[26px]" />
+              </button>
 
-            <button
-              type="button"
-              onClick={() => scrollServices("right")}
-              disabled={isMounted ? !canScrollRight : false}
-              suppressHydrationWarning
-              aria-label="Next services"
-              style={{ animationDelay: "450ms" }}
-              className={`absolute -right-3 top-1/2 z-30 flex h-[40px] w-[40px] sm:h-[52px] sm:w-[52px] -translate-y-1/2 items-center justify-center rounded-full border border-gray-100 bg-white text-[#10aa3a] shadow-[0_6px_25px_rgba(8,45,76,0.14)] transition-all duration-200 hover:bg-[#10aa3a] hover:text-white active:scale-95 disabled:pointer-events-none disabled:opacity-0 sm:-right-5 lg:-right-7 ${
+              <div
+                ref={sliderRef}
+                onScroll={checkScroll}
+                className="flex snap-x snap-mandatory gap-3.5 sm:gap-6 overflow-x-auto scroll-smooth pb-6 pt-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              >
+                {displayedServices.map((service, idx) => {
+                  const Icon = iconMap[service.icon] ?? Home;
+                  return (
+                    <ServiceCard
+                      key={`${service.id}-${idx}`}
+                      service={service}
+                      icon={Icon}
+                      delay={450 + idx * 80}
+                      isVisible={isVisible}
+                      onClick={() => setSelectedService(service)}
+                    />
+                  );
+                })}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => scrollServices("right")}
+                disabled={!canScrollRight}
+                suppressHydrationWarning
+                aria-label="Next services"
+                style={{ animationDelay: "450ms" }}
+                className={`absolute -right-3 top-1/2 z-30 flex h-[40px] w-[40px] sm:h-[52px] sm:w-[52px] -translate-y-1/2 items-center justify-center rounded-full border border-gray-100 bg-white text-[#10aa3a] shadow-[0_6px_25px_rgba(8,45,76,0.14)] transition-all duration-200 hover:bg-[#10aa3a] hover:text-white active:scale-95 disabled:pointer-events-none disabled:opacity-0 sm:-right-5 lg:-right-7 ${
+                  isVisible ? "animate-fade-in-scale" : "opacity-0"
+                }`}
+              >
+                <ChevronRight size={22} strokeWidth={2.2} className="ml-0.5 sm:h-[26px] sm:w-[26px]" />
+              </button>
+            </div>
+          )}
+
+          {isServicesPage && totalPages > 1 && (
+            <div
+              style={{
+                animationDelay: `${450 + displayedServices.length * 80 + 80}ms`,
+              }}
+              className={`mt-10 flex items-center justify-center gap-2 sm:mt-12 ${
                 isVisible ? "animate-fade-in-scale" : "opacity-0"
               }`}
             >
-              <ChevronRight size={22} strokeWidth={2.2} className="ml-0.5 sm:h-[26px] sm:w-[26px]" />
-            </button>
-          </div>
-        )}
+              <button
+                type="button"
+                onClick={() => goToPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                suppressHydrationWarning
+                aria-label="Previous page"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-[#092a43] transition-all hover:border-[#10aa3a] hover:text-[#10aa3a] disabled:cursor-not-allowed disabled:opacity-40 cursor-pointer"
+              >
+                <ChevronLeft size={20} />
+              </button>
 
-        {isServicesPage && totalPages > 1 && (
-          <div
-            style={{
-              animationDelay: `${450 + displayedServices.length * 80 + 80}ms`,
-            }}
-            className={`mt-10 flex items-center justify-center gap-2 sm:mt-12 ${
-              isVisible ? "animate-fade-in-scale" : "opacity-0"
-            }`}
-          >
-            <button
-              type="button"
-              onClick={() => goToPage(currentPage - 1)}
-              disabled={currentPage === 1}
-              suppressHydrationWarning
-              aria-label="Previous page"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-[#092a43] transition-all hover:border-[#10aa3a] hover:text-[#10aa3a] disabled:cursor-not-allowed disabled:opacity-40 cursor-pointer"
-            >
-              <ChevronLeft size={20} />
-            </button>
+              {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+                (page) => (
+                  <button
+                    key={page}
+                    type="button"
+                    onClick={() => goToPage(page)}
+                    suppressHydrationWarning
+                    className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold transition-all cursor-pointer ${
+                      currentPage === page
+                        ? "bg-[#10aa3a] text-white shadow-md scale-105"
+                        : "border border-gray-200 bg-white text-[#092a43] hover:border-[#10aa3a] hover:text-[#10aa3a]"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ),
+              )}
 
-            {Array.from({ length: totalPages }, (_, index) => index + 1).map(
-              (page) => (
-                <button
-                  key={page}
-                  type="button"
-                  onClick={() => goToPage(page)}
-                  suppressHydrationWarning
-                  className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold transition-all cursor-pointer ${
-                    currentPage === page
-                      ? "bg-[#10aa3a] text-white shadow-md scale-105"
-                      : "border border-gray-200 bg-white text-[#092a43] hover:border-[#10aa3a] hover:text-[#10aa3a]"
-                  }`}
-                >
-                  {page}
-                </button>
-              ),
-            )}
+              <button
+                type="button"
+                onClick={() => goToPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                suppressHydrationWarning
+                aria-label="Next page"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-[#092a43] transition-all hover:border-[#10aa3a] hover:text-[#10aa3a] disabled:cursor-not-allowed disabled:opacity-40 cursor-pointer"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
 
-            <button
-              type="button"
-              onClick={() => goToPage(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              suppressHydrationWarning
-              aria-label="Next page"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-[#092a43] transition-all hover:border-[#10aa3a] hover:text-[#10aa3a] disabled:cursor-not-allowed disabled:opacity-40 cursor-pointer"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-        )}
-
-        {shouldShowViewAll && (
-          <div
-            style={{ animationDelay: "880ms" }}
-            className={`mt-8 flex justify-center sm:mt-10 ${
-              isVisible ? "animate-fade-in-scale" : "opacity-0"
-            }`}
-          >
-            <Link
-              href={viewAllButton.href}
-              className="group inline-flex h-[54px] items-center justify-center gap-3 rounded-full bg-[#10ad3b] px-8 text-[14px] font-bold text-white shadow-md transition hover:bg-[#07952f] active:scale-95"
-            >
-              <span className="leading-none">{viewAllButton.label}</span>
-              <ArrowRight
-                size={19}
-                className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </Link>
-          </div>
-        )}
-      </div>
-    </section>
+      <ServiceDetailModal
+        service={selectedService}
+        onClose={() => setSelectedService(null)}
+        onEnquire={(serviceName) => {
+          setSelectedService(null);
+          openEnquiry(serviceName);
+        }}
+      />
+    </>
   );
 }
 
 interface ServiceCardProps {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
+  service: ServiceItem;
   icon: React.ElementType;
-  darkIcon: boolean;
   isGrid?: boolean;
   delay?: number;
   isVisible?: boolean;
+  onClick: () => void;
 }
 
 function ServiceCard({
-  id,
-  title,
-  description,
-  image,
+  service,
   icon: Icon,
-  darkIcon,
   isGrid = false,
   delay = 450,
   isVisible = true,
+  onClick,
 }: ServiceCardProps) {
+  const { title, description, image, darkIcon } = service;
+
   return (
-    <Link
-      href={`/services/${id}`}
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick();
+        }
+      }}
       data-service-card
       aria-label={`View details for ${title}`}
       style={{ animationDelay: `${delay}ms` }}
-      className={`group flex flex-col items-center overflow-hidden rounded-[26px] sm:rounded-[40px] border border-[#eef2f3] bg-white shadow-[0_8px_30px_rgba(8,45,76,0.07)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(8,45,76,0.12)] cursor-pointer ${
+      className={`group flex flex-col items-center overflow-hidden rounded-[26px] sm:rounded-[40px] border border-[#eef2f3] bg-white shadow-[0_8px_30px_rgba(8,45,76,0.07)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(8,45,76,0.12)] cursor-pointer select-none text-center ${
         isVisible ? "animate-fade-in-scale" : "opacity-0"
       } ${
         isGrid
@@ -483,13 +466,13 @@ function ServiceCard({
 
         <div className="mt-auto flex w-full justify-center pt-2 sm:pt-4">
           <span
-            aria-label={`View ${title}`}
-            className="flex h-[32px] w-[32px] sm:h-[40px] sm:w-[40px] items-center justify-center rounded-full bg-[#12b43c] text-white shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-[#07972e]"
+            className="flex min-h-[40px] items-center justify-center gap-2 rounded-full bg-[#11883e] px-4 text-xs font-bold text-white shadow-sm transition-all duration-300 group-hover:bg-[#07972e]"
           >
+            View Details
             <ArrowRight size={16} className="sm:h-[19px] sm:w-[19px]" />
           </span>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

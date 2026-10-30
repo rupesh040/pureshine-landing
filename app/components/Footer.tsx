@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight, X } from "lucide-react";
 import {
   RiAwardFill,
@@ -22,6 +23,7 @@ import {
 import type { IconType } from "react-icons";
 
 import content from "../data";
+import { useEnquiry } from "./EnquiryProvider";
 
 const socialIconMap: Record<string, IconType> = {
   Facebook: RiFacebookFill,
@@ -53,6 +55,10 @@ const trustBadges = footer.trustBadges.map((badge) => ({
 }));
 
 export default function Footer() {
+  const isLanding = usePathname() === "/";
+  const { openEnquiry } = useEnquiry();
+  const visibleQuickLinks = quickLinks;
+  const visibleServiceLinks = serviceLinks;
   const footerRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState("");
@@ -64,8 +70,8 @@ export default function Footer() {
     if (!el) return;
 
     if (typeof IntersectionObserver === "undefined") {
-      setIsVisible(true);
-      return;
+      const frame = requestAnimationFrame(() => setIsVisible(true));
+      return () => cancelAnimationFrame(frame);
     }
 
     const observer = new IntersectionObserver(
@@ -128,13 +134,26 @@ export default function Footer() {
         <LeafDecoration />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1500px] px-5 pt-10 pb-6 sm:px-8 sm:pt-12 sm:pb-6 lg:px-10 xl:px-14">
+      <div className="relative z-10 mx-auto max-w-[1500px] px-5 py-6 sm:px-8 lg:px-10 xl:px-14">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-[1.15fr_0.75fr_0.8fr_1.1fr_1.2fr] lg:gap-6 xl:gap-8">
           <div
             style={{ animationDelay: "150ms" }}
             className={isVisible ? "animate-fade-in-up" : "opacity-0"}
           >
-            <Link href={footer.logoHref} className="inline-block transition-transform duration-300 hover:scale-[1.02]">
+            <Link
+              href={isLanding ? "#home" : footer.logoHref}
+              onClick={(e) => {
+                if (isLanding) {
+                  const targetElement = document.getElementById("home");
+                  if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: "smooth" });
+                    window.history.pushState(null, "", "#home");
+                  }
+                }
+              }}
+              className="inline-block transition-transform duration-300 hover:scale-[1.02]"
+            >
               <Image
                 src={footer.logo}
                 alt={footer.logoAlt}
@@ -172,7 +191,7 @@ export default function Footer() {
             <FooterHeading>{footer.quickLinksTitle}</FooterHeading>
 
             <ul className="mt-4 space-y-2.5">
-              {quickLinks.map(([name, href]) => (
+              {visibleQuickLinks.map(([name, href]) => (
                 <FooterLink key={name} name={name} href={href} />
               ))}
             </ul>
@@ -182,10 +201,10 @@ export default function Footer() {
             style={{ animationDelay: "370ms" }}
             className={isVisible ? "animate-fade-in-up" : "opacity-0"}
           >
-            <FooterHeading>{footer.servicesTitle}</FooterHeading>
+            <FooterHeading href="#services">{footer.servicesTitle}</FooterHeading>
 
             <ul className="mt-4 space-y-2.5">
-              {serviceLinks.map(([name, href]) => (
+              {visibleServiceLinks.map(([name, href]) => (
                 <FooterLink key={name} name={name} href={href} />
               ))}
             </ul>
@@ -225,12 +244,22 @@ export default function Footer() {
               isVisible ? "animate-fade-in-up" : "opacity-0"
             }`}
           >
-            <FooterHeading>{footer.newsletter.title}</FooterHeading>
+            <FooterHeading>{isLanding ? content.contact.form.badge : footer.newsletter.title}</FooterHeading>
 
             <p className="mt-2 text-[12.5px] font-normal leading-5 text-white/65">
-              {footer.newsletter.description}
+              {isLanding ? content.contact.form.description : footer.newsletter.description}
             </p>
 
+            {isLanding ? (
+              <button
+                type="button"
+                onClick={() => openEnquiry()}
+                className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#12b63a] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#0c9c30]"
+              >
+                {content.hero.primaryButton.label}
+                <ArrowRight size={18} aria-hidden="true" />
+              </button>
+            ) : (
             <form
               onSubmit={handleNewsletterSubmit}
               className="mt-3.5 flex h-10 w-full overflow-hidden rounded-md border border-white/20 bg-white/[0.04] transition-colors focus-within:border-[#12b63a]"
@@ -252,6 +281,7 @@ export default function Footer() {
                 <ArrowRight size={20} strokeWidth={2.5} />
               </button>
             </form>
+            )}
 
             <div className="mt-4 pt-3.5 border-t border-white/10">
               <div className="grid grid-cols-4 gap-2">
@@ -286,7 +316,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {showPopCard && (
+      {!isLanding && showPopCard && (
         <div
           role="dialog"
           aria-modal="true"
@@ -338,11 +368,39 @@ export default function Footer() {
   );
 }
 
-function FooterHeading({ children }: { children: React.ReactNode }) {
+function FooterHeading({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href?: string;
+}) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href && href.startsWith("#")) {
+      const targetId = href.slice(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+      }
+    }
+  };
+
   return (
     <div>
       <h3 className="text-[15px] font-bold leading-5 text-white sm:text-[16px] mb-2">
-        {children}
+        {href ? (
+          <Link
+            href={href}
+            onClick={handleClick}
+            className="transition-colors hover:text-[#18bb40]"
+          >
+            {children}
+          </Link>
+        ) : (
+          children
+        )}
       </h3>
 
       <span className="mt-2 block h-[2.5px] w-8 rounded-full bg-[#12b83b]" />
@@ -351,10 +409,23 @@ function FooterHeading({ children }: { children: React.ReactNode }) {
 }
 
 function FooterLink({ name, href }: { name: string; href: string }) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href.startsWith("#")) {
+      const targetId = href.slice(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+      }
+    }
+  };
+
   return (
     <li>
       <Link
         href={href}
+        onClick={handleClick}
         className="group flex items-center gap-2 text-[13px] font-medium leading-5 text-white/65 transition-colors hover:text-[#18bb40] sm:text-[13.5px]"
       >
         <span className="text-[18px] leading-4 text-white/70 transition-transform duration-200 group-hover:translate-x-1">

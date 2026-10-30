@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import LandingAction from "./LandingAction";
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import {
@@ -64,9 +65,9 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-[68%] bg-gradient-to-r from-white/20 via-white/95 to-transparent lg:block" />
       <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-[62%] bg-[radial-gradient(ellipse_at_35%_50%,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.75)_42%,rgba(255,255,255,0)_78%)] lg:block" />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-5 pb-12 pt-0 min-[480px]:px-7 sm:px-8 sm:pb-14 md:px-10 lg:flex lg:min-h-[560px] lg:items-center lg:px-12 lg:py-16 xl:px-16">
+      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-5 pb-6 pt-0 min-[480px]:px-7 sm:px-8 sm:pb-6 md:px-10 lg:flex lg:min-h-[560px] lg:items-center lg:px-12 lg:py-6 xl:px-16">
         <div className="-mt-[55px] w-full min-[480px]:-mt-[65px] sm:-mt-[75px] lg:mt-0 lg:max-w-[650px] xl:max-w-[680px]">
-          <div className="relative rounded-[24px] bg-white/90 px-4 py-7 shadow-[0_-8px_35px_rgba(255,255,255,0.8)] backdrop-blur-[2px] min-[380px]:px-5 sm:px-7 sm:py-8 lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none lg:backdrop-blur-0">
+          <div className="relative rounded-[24px] bg-white/90 px-4 py-6 shadow-[0_-8px_35px_rgba(255,255,255,0.8)] backdrop-blur-[2px] min-[380px]:px-5 sm:px-7 sm:py-6 lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none lg:backdrop-blur-0">
             <p
               style={{ animationDelay: "100ms" }}
               className="animate-fade-in-up mb-3 text-[10px] font-semibold uppercase leading-5 tracking-[2.5px] text-[#234762] min-[380px]:text-[11px] sm:text-[12px] sm:tracking-[3.5px] md:text-[13px] lg:text-[14px] lg:tracking-[5px]"
@@ -110,19 +111,19 @@ export default function Hero() {
               style={{ animationDelay: "820ms" }}
               className="animate-fade-in-scale mt-7 grid grid-cols-1 gap-3 min-[430px]:grid-cols-2 min-[430px]:gap-4 sm:flex sm:flex-wrap"
             >
-              <Link
+              <LandingAction
                 href={primaryButton.href}
-                className="group flex h-[50px] w-full items-center justify-center gap-3 rounded-full bg-[#16b532] px-5 text-[14px] font-bold text-white shadow-[0_7px_20px_rgba(22,181,50,0.2)] transition-all duration-200 hover:bg-[#119728] hover:shadow-[0_9px_24px_rgba(22,181,50,0.28)] active:scale-[0.98] min-[430px]:px-3 sm:h-[51px] sm:w-auto sm:min-w-[180px] sm:px-7 sm:text-[15px] lg:text-[16px]"
+                className="group flex h-[50px] w-full items-center justify-center gap-3 rounded-full bg-[#11883e] px-5 text-[14px] font-bold text-white shadow-[0_7px_20px_rgba(22,181,50,0.2)] transition-all duration-200 hover:bg-[#119728] hover:shadow-[0_9px_24px_rgba(22,181,50,0.28)] active:scale-[0.98] min-[430px]:px-3 sm:h-[51px] sm:w-auto sm:min-w-[180px] sm:px-7 sm:text-[15px] lg:text-[16px]"
               >
                 <span>{primaryButton.label}</span>
                 <ArrowRight
                   size={20}
                   className="shrink-0 transition-transform duration-200 group-hover:translate-x-1"
                 />
-              </Link>
+              </LandingAction>
 
               <Link
-                href={secondaryButton.href}
+                href={secondaryButton.href || "#services"}
                 className="group flex h-[50px] w-full items-center justify-center gap-3 rounded-full border-2 border-[#8ca0af] bg-white px-5 text-[14px] font-bold text-[#173b55] transition-all duration-200 hover:border-[#173b55] hover:bg-white active:scale-[0.98] min-[430px]:px-3 sm:h-[51px] sm:w-auto sm:min-w-[170px] sm:px-7 sm:text-[15px] lg:bg-white/80 lg:text-[16px]"
               >
                 <span>{secondaryButton.label}</span>

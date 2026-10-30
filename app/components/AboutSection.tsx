@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import Link from "./LandingAction";
 import { ArrowRight } from "lucide-react";
 import {
   RiLeafFill,
@@ -28,8 +28,8 @@ export default function AboutSection() {
     if (!el) return;
 
     if (typeof IntersectionObserver === "undefined") {
-      setIsVisible(true);
-      return;
+      const frame = requestAnimationFrame(() => setIsVisible(true));
+      return () => cancelAnimationFrame(frame);
     }
 
     const rect = el.getBoundingClientRect();
@@ -166,7 +166,7 @@ export default function AboutSection() {
           >
             <Link
               href={button.href}
-              className="group inline-flex h-[52px] items-center gap-4 rounded-full bg-[#10ae3a] pl-7 pr-2 text-[14px] font-bold text-white shadow-[0_6px_18px_rgba(16,174,58,0.20)] transition-all duration-300 hover:bg-[#07972e] hover:shadow-[0_8px_22px_rgba(16,174,58,0.28)] active:scale-95 sm:h-[55px] sm:gap-5 sm:pl-8 sm:text-[15px]"
+              className="group inline-flex h-[52px] items-center gap-4 rounded-full bg-[#11883e] pl-7 pr-2 text-[14px] font-bold text-white shadow-[0_6px_18px_rgba(16,174,58,0.20)] transition-all duration-300 hover:bg-[#07972e] hover:shadow-[0_8px_22px_rgba(16,174,58,0.28)] active:scale-95 sm:h-[55px] sm:gap-5 sm:pl-8 sm:text-[15px]"
             >
               <span>{button.label}</span>
 

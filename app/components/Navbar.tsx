@@ -34,6 +34,7 @@ const {
   socialLinks: rawSocial,
   leftMenu,
   rightMenu,
+  landingNavigation = [...leftMenu, ...rightMenu],
 } = content.navbar;
 
 const { name: siteName, logo: siteLogo, phone, phoneHref, email, emailHref } = content.site;
@@ -49,12 +50,30 @@ const socialLinks = rawSocial.map((s) => ({
 
 export default function Navbar() {
   const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
+  const isLanding = pathname === "/";
+  const visibleLeftMenu = isLanding ? landingNavigation.slice(0, 3) : leftMenu;
+  const visibleRightMenu = isLanding ? landingNavigation.slice(3) : rightMenu;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [pathname]);
+    if (!isLanding || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        }
+      },
+      { rootMargin: "-18% 0px -60% 0px", threshold: 0 },
+    );
+    for (const { href } of landingNavigation) {
+      const section = document.getElementById(href.slice(1));
+      if (section) observer.observe(section);
+    }
+    return () => observer.disconnect();
+  }, [isLanding]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -81,6 +100,7 @@ export default function Navbar() {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setMobileMenuOpen(false);
+        menuButtonRef.current?.focus();
       }
     };
 
@@ -96,6 +116,7 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   const isActive = (href: string) => {
+    if (isLanding) return href === `#${activeSection}`;
     if (href === "/") {
       return pathname === "/";
     }
@@ -104,7 +125,7 @@ export default function Navbar() {
   };
 
   return (
-    <header ref={headerRef} className="relative z-50 w-full">
+    <header ref={headerRef} className={`${isLanding ? "sticky top-0" : "relative"} z-50 w-full`}>
       <div className="relative h-[58px] bg-[#092a43] text-white sm:h-[63px]">
         <div
           className="
@@ -181,7 +202,7 @@ export default function Navbar() {
           }}
         >
           <Link
-            href="/"
+            href={isLanding ? "#home" : "/"}
             className="
               relative z-10 flex h-full w-full items-center justify-center
             "
@@ -221,18 +242,20 @@ export default function Navbar() {
           "
         >
           <nav
+            aria-label="Primary navigation"
             className="
               flex h-full items-center gap-6
               min-[1150px]:gap-10 xl:gap-14
             "
           >
-            {leftMenu.map((item) => {
+            {visibleLeftMenu.map((item) => {
               const active = isActive(item.href);
 
               return (
                 <Link
                   key={item.name}
                   href={item.href}
+                  aria-current={active ? (isLanding ? "location" : "page") : undefined}
                   className={`
                     group relative flex h-full items-center whitespace-nowrap
                     text-[14px] font-semibold transition-colors duration-200 xl:text-[15px]
@@ -263,18 +286,20 @@ export default function Navbar() {
           </nav>
 
           <nav
+            aria-label="More navigation"
             className="
               ml-auto flex h-full items-center gap-6
               min-[1150px]:gap-10 xl:gap-14
             "
           >
-            {rightMenu.map((item) => {
+            {visibleRightMenu.map((item) => {
               const active = isActive(item.href);
 
               return (
                 <Link
                   key={item.name}
                   href={item.href}
+                  aria-current={active ? (isLanding ? "location" : "page") : undefined}
                   className={`
                     group relative flex h-full items-center gap-1 whitespace-nowrap
                     text-[14px] font-semibold transition-colors duration-200
@@ -328,12 +353,14 @@ export default function Navbar() {
         "
       >
         <button
+          ref={menuButtonRef}
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={
             mobileMenuOpen ? closeMenuAriaLabel : openMenuAriaLabel
           }
           aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
           className="
             relative flex h-10 w-10 items-center justify-center rounded-md
             text-[#092a43] transition-colors duration-200 hover:bg-[#f1f5f7] cursor-pointer
@@ -358,7 +385,7 @@ export default function Navbar() {
         </button>
 
         <Link
-          href="/"
+          href={isLanding ? "#home" : "/"}
           onClick={() => setMobileMenuOpen(false)}
           className="
             absolute left-1/2 top-0 flex -translate-x-1/2
@@ -384,7 +411,11 @@ export default function Navbar() {
       </div>
 
       <div
+        id="mobile-navigation"
+        inert={!mobileMenuOpen}
+        aria-hidden={!mobileMenuOpen}
         className={`
+          ${isLanding ? "absolute inset-x-0 top-full" : ""}
           grid transition-all duration-300 ease-in-out min-[1025px]:hidden
           ${
             mobileMenuOpen
@@ -395,19 +426,20 @@ export default function Navbar() {
       >
         <div
           className={`
-            min-h-0 overflow-hidden   bg-white shadow-lg
+            min-h-0 max-h-[calc(100dvh-125px)] overflow-y-auto overscroll-contain bg-white shadow-lg sm:max-h-[calc(100dvh-130px)]
             transition-transform duration-300 ease-in-out
             ${mobileMenuOpen ? "translate-y-0" : "-translate-y-2"}
           `}
         >
-          <nav className="flex flex-col">
-            {leftMenu.map((item) => {
+          <nav aria-label="Mobile navigation" className="flex flex-col">
+            {visibleLeftMenu.map((item) => {
               const active = isActive(item.href);
 
               return (
                 <Link
                   key={item.name}
                   href={item.href}
+                  aria-current={active ? (isLanding ? "location" : "page") : undefined}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`
                     group relative flex items-center justify-between border-b border-gray-100 px-6 py-4
@@ -436,13 +468,14 @@ export default function Navbar() {
               );
             })}
 
-            {rightMenu.map((item) => {
+            {visibleRightMenu.map((item) => {
               const active = isActive(item.href);
 
               return (
                 <Link
                   key={item.name}
                   href={item.href}
+                  aria-current={active ? (isLanding ? "location" : "page") : undefined}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`
                     group relative flex items-center justify-between border-b border-gray-100 px-6 py-4

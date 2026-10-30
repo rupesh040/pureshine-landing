@@ -8,7 +8,7 @@ import content from "../data";
 const { heading, subheading, description, items: testimonials } =
   content.testimonials;
 
-export default function Testimonials() {
+export default function Testimonials({ autoPlay = true }: { autoPlay?: boolean } = {}) {
   const sliderRef = useRef<HTMLDivElement>(null);
   const isJumpingRef = useRef(false);
 
@@ -104,14 +104,14 @@ export default function Testimonials() {
   };
 
   useEffect(() => {
-    if (isPaused) return;
+    if (!autoPlay || isPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const interval = setInterval(() => {
       scrollTestimonials("right");
     }, 3500);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [autoPlay, isPaused]);
 
   useEffect(() => {
     const slider = sliderRef.current;
